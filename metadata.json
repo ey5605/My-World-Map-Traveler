@@ -1,0 +1,6 @@
+{
+  "name": "World Travel Map Tracker",
+  "description": "Interactive dark world map tracker to log visited countries and regional subdivisions like US East Coast, West Coast, Alaska, Hawaii, and provinces with persistent storage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
