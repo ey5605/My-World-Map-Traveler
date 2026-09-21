@@ -8,10 +8,7 @@ import { Country } from './types';
 import {
   Globe2,
   Menu,
-  Sparkles,
-  Layers,
-  MapPin,
-  CheckCircle2
+  MapPin
 } from 'lucide-react';
 
 export default function App() {
@@ -26,6 +23,7 @@ export default function App() {
     toggleSubdivision,
     toggleRegionGroup,
     setHighlightColor,
+    setOceanColor,
     setProjection,
     resetAll,
     exportData,
@@ -56,14 +54,6 @@ export default function App() {
     setProjection(storageData.projection === 'naturalEarth' ? 'mercator' : 'naturalEarth');
   }, [storageData.projection, setProjection]);
 
-  // Shortcut for opening USA regions directly
-  const handleOpenUsRegions = () => {
-    const usa = COUNTRIES.find(c => c.id === '840');
-    if (usa) {
-      handleOpenRegionalModal(usa);
-    }
-  };
-
   return (
     <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 overflow-hidden" dir="rtl">
       {/* Top Application Bar */}
@@ -80,9 +70,6 @@ export default function App() {
               <h1 className="text-base sm:text-lg font-bold text-white tracking-tight">
                 מפת המסעות שלי
               </h1>
-              <span className="hidden sm:inline-block text-[11px] text-cyan-400 font-medium px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-800/40">
-                מעקב עולמי &amp; מחוזות
-              </span>
             </div>
             <p className="text-[11px] text-slate-400 hidden xs:block">
               תיעוד מדינות, חופים ומחוזות שבהם ביקרת בעולם
@@ -92,18 +79,6 @@ export default function App() {
 
         {/* Header Right Actions */}
         <div className="flex items-center gap-2">
-          {/* Quick US Regions Button */}
-          <button
-            id="quick-us-regions-header-btn"
-            onClick={handleOpenUsRegions}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-medium transition-colors cursor-pointer"
-            title="פירוט מחוזות ארה״ב (חוף מזרחי, מערבי, אלסקה, הוואי)"
-          >
-            <span>🇺🇸</span>
-            <Layers className="w-3.5 h-3.5 text-cyan-400" />
-            <span>אזורי ארה״ב</span>
-          </button>
-
           {/* Visited Counter Badge */}
           <div
             id="visited-stats-badge"
@@ -144,6 +119,8 @@ export default function App() {
             toggleSubdivision={toggleSubdivision}
             onOpenRegionalModal={handleOpenRegionalModal}
             highlightColor={storageData.highlightColor}
+            oceanColor={storageData.oceanColor || '#080c14'}
+            onSelectOceanColor={setOceanColor}
             projectionType={storageData.projection || 'naturalEarth'}
             onToggleProjection={handleToggleProjection}
             focusedCountryId={focusedCountryId}
@@ -160,6 +137,8 @@ export default function App() {
           onFocusCountry={handleFocusCountry}
           highlightColor={storageData.highlightColor}
           onSelectHighlightColor={setHighlightColor}
+          oceanColor={storageData.oceanColor || '#080c14'}
+          onSelectOceanColor={setOceanColor}
           onResetAll={resetAll}
           onExportData={exportData}
           onImportData={importData}

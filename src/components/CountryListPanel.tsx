@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Country } from '../types';
 import { COUNTRIES, CONTINENTS } from '../data/countries';
-import { HIGHLIGHT_THEMES, US_STATES, CA_PROVINCES, AU_STATES } from '../data/subdivisions';
+import { HIGHLIGHT_THEMES, OCEAN_THEMES, getOceanTheme, US_STATES, CA_PROVINCES, AU_STATES } from '../data/subdivisions';
 import {
   Search,
   Check,
@@ -15,7 +15,8 @@ import {
   ChevronLeft,
   SlidersHorizontal,
   X,
-  AlertTriangle
+  AlertTriangle,
+  Waves
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -28,6 +29,8 @@ interface CountryListPanelProps {
   onFocusCountry: (countryId: string) => void;
   highlightColor: string;
   onSelectHighlightColor: (hex: string) => void;
+  oceanColor?: string;
+  onSelectOceanColor: (hex: string) => void;
   onResetAll: () => void;
   onExportData: () => void;
   onImportData: (json: string) => boolean;
@@ -44,6 +47,8 @@ export const CountryListPanel: React.FC<CountryListPanelProps> = ({
   onFocusCountry,
   highlightColor,
   onSelectHighlightColor,
+  oceanColor = '#080c14',
+  onSelectOceanColor,
   onResetAll,
   onExportData,
   onImportData,
@@ -55,6 +60,15 @@ export const CountryListPanel: React.FC<CountryListPanelProps> = ({
   const [continentFilter, setContinentFilter] = useState<string>('all');
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [confirmReset, setConfirmReset] = useState(false);
+  const [toastMessage, setToastMessage] = useState<{ text: string; type: 'success' | 'error' | 'info' } | null>(null);
+
+  const showToast = (text: string, type: 'success' | 'error' | 'info' = 'success') => {
+    setToastMessage({ text, type });
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 3500);
+  };
 
   // Stats calculation
   const totalCountries = COUNTRIES.length;
@@ -74,7 +88,15 @@ export const CountryListPanel: React.FC<CountryListPanelProps> = ({
       if (statusFilter === 'unvisited' && status !== 'none') return false;
 
       // Continent filter
-      if (continentFilter !== 'all' && country.continent !== continentFilter) return false;
+      if (continentFilter !== 'all') {
+        if (continentFilter === 'אמריקה') {
+          if (country.continent !== 'צפון אמריקה' && country.continent !== 'דרום אמריקה') {
+            return false;
+          }
+        } else if (country.continent !== continentFilter) {
+          return false;
+        }
+      }
 
       // Search query
       if (!query) return true;
@@ -110,9 +132,9 @@ export const CountryListPanel: React.FC<CountryListPanelProps> = ({
       if (content) {
         const success = onImportData(content);
         if (success) {
-          alert('הנתונים יובאו בהצלחה!');
+          showToast('הנתונים יובאו בהצלחה!', 'success');
         } else {
-          alert('שגיאה ביבוא הקובץ. אנא ודא שהקובץ תקין.');
+          showToast('שגיאה ביבוא הקובץ. אנא ודא שהקובץ תקין.', 'error');
         }
       }
     };
@@ -128,6 +150,22 @@ export const CountryListPanel: React.FC<CountryListPanelProps> = ({
       }`}
       dir="rtl"
     >
+      {/* In-app notification toast */}
+      {toastMessage && (
+        <div className={`px-4 py-2 text-xs font-medium flex items-center justify-between transition-all duration-200 shrink-0 ${
+          toastMessage.type === 'error'
+            ? 'bg-rose-900/90 text-rose-100 border-b border-rose-700'
+            : toastMessage.type === 'info'
+            ? 'bg-amber-900/90 text-amber-100 border-b border-amber-700'
+            : 'bg-emerald-900/90 text-emerald-100 border-b border-emerald-700'
+        }`}>
+          <span>{toastMessage.text}</span>
+          <button onClick={() => setToastMessage(null)} className="p-0.5 hover:bg-black/20 rounded cursor-pointer">
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
+
       {/* Header & Stats */}
       <div className="p-4 border-b border-slate-800 bg-slate-950/70">
         <div className="flex items-center justify-between gap-2 mb-3">
@@ -172,28 +210,65 @@ export const CountryListPanel: React.FC<CountryListPanelProps> = ({
           </div>
         </div>
 
-        {/* Highlight Color Picker Flyout */}
+        {/* Highlight & Ocean Color Picker Flyout */}
         {showColorPicker && (
-          <div className="mb-3 p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-2 animate-in fade-in duration-150">
-            <div className="text-xs text-slate-300 font-semibold flex items-center justify-between">
-              <span>בחר צבע בולט למקומות שביקרת:</span>
+          <div className="mb-3 p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-3 animate-in fade-in duration-150">
+            {/* Visited highlight color */}
+            <div>
+              <div className="text-xs text-slate-300 font-semibold flex items-center justify-between">
+                <span>צבע הדגשה למקומות שביקרת:</span>
+              </div>
+              <div className="flex items-center gap-2 pt-1.5">
+                {HIGHLIGHT_THEMES.map(theme => (
+                  <button
+                    key={theme.id}
+                    onClick={() => onSelectHighlightColor(theme.hex)}
+                    className={`w-7 h-7 rounded-full transition-transform cursor-pointer flex items-center justify-center ${
+                      highlightColor === theme.hex
+                        ? 'scale-110 ring-2 ring-white ring-offset-2 ring-offset-slate-900'
+                        : 'opacity-70 hover:opacity-100 hover:scale-105'
+                    }`}
+                    style={{ backgroundColor: theme.hex }}
+                    title={theme.nameHe}
+                  >
+                    {highlightColor === theme.hex && <Check className="w-3.5 h-3.5 text-black stroke-[3]" />}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-2 pt-1">
-              {HIGHLIGHT_THEMES.map(theme => (
-                <button
-                  key={theme.id}
-                  onClick={() => onSelectHighlightColor(theme.hex)}
-                  className={`w-7 h-7 rounded-full transition-transform cursor-pointer flex items-center justify-center ${
-                    highlightColor === theme.hex
-                      ? 'scale-110 ring-2 ring-white ring-offset-2 ring-offset-slate-900'
-                      : 'opacity-70 hover:opacity-100'
-                  }`}
-                  style={{ backgroundColor: theme.hex }}
-                  title={theme.nameHe}
-                >
-                  {highlightColor === theme.hex && <Check className="w-3.5 h-3.5 text-black stroke-[3]" />}
-                </button>
-              ))}
+
+            {/* Ocean / Sea background color */}
+            <div className="pt-2.5 border-t border-slate-800/80">
+              <div className="text-xs text-slate-300 font-semibold flex items-center justify-between mb-1.5">
+                <span className="flex items-center gap-1.5">
+                  <Waves className="w-3.5 h-3.5 text-cyan-400" />
+                  צבע רקע לים ולאוקיינוסים:
+                </span>
+                <span className="text-[11px] text-slate-400 font-normal">{getOceanTheme(oceanColor).nameHe}</span>
+              </div>
+              <div className="flex items-center gap-2 pt-1">
+                {OCEAN_THEMES.map(theme => {
+                  const isSelected = oceanColor.toLowerCase() === theme.hex.toLowerCase();
+                  return (
+                    <button
+                      key={theme.id}
+                      id={`sidebar-ocean-${theme.id}`}
+                      onClick={() => onSelectOceanColor(theme.hex)}
+                      className={`w-7 h-7 rounded-full transition-transform cursor-pointer flex items-center justify-center border ${
+                        isSelected
+                          ? 'scale-110 ring-2 ring-cyan-400 ring-offset-2 ring-offset-slate-900 border-white'
+                          : 'border-slate-700 opacity-70 hover:opacity-100 hover:scale-105'
+                      }`}
+                      style={{ backgroundColor: theme.hex }}
+                      title={`${theme.nameHe} (${theme.nameEn})`}
+                    >
+                      {isSelected && (
+                        <Check className={`w-3.5 h-3.5 stroke-[3] ${theme.isLight ? 'text-slate-900' : 'text-white'}`} />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}
@@ -221,17 +296,41 @@ export const CountryListPanel: React.FC<CountryListPanelProps> = ({
                 />
               </label>
             </div>
-            <button
-              onClick={() => {
-                if (confirm('האם אתה בטוח שברצונך לאפס את כל המקומות שסומנו?')) {
-                  onResetAll();
-                }
-              }}
-              className="w-full mt-2 px-2.5 py-1.5 bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/30 rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>איפוס כל הסימונים</span>
-            </button>
+            {confirmReset ? (
+              <div className="mt-2 p-2.5 bg-rose-950/70 border border-rose-500/50 rounded-lg space-y-2 text-xs animate-in fade-in duration-150">
+                <div className="flex items-center gap-1.5 text-rose-200 font-medium">
+                  <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>האם לאפס את כל המקומות שסומנו?</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      onResetAll();
+                      setConfirmReset(false);
+                      showToast('כל הסימונים אופסו בהצלחה', 'info');
+                    }}
+                    className="flex-1 py-1.5 px-2 bg-rose-600 hover:bg-rose-500 text-white font-semibold rounded-md transition-colors cursor-pointer flex items-center justify-center gap-1"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>כן, אפס הכל</span>
+                  </button>
+                  <button
+                    onClick={() => setConfirmReset(false)}
+                    className="py-1.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md transition-colors cursor-pointer"
+                  >
+                    ביטול
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => setConfirmReset(true)}
+                className="w-full mt-2 px-2.5 py-1.5 bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/30 rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>איפוס כל הסימונים</span>
+              </button>
+            )}
           </div>
         )}
 

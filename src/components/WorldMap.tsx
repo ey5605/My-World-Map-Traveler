@@ -5,7 +5,7 @@ import * as d3Selection from 'd3-selection';
 import 'd3-transition';
 import { Country, Subdivision } from '../types';
 import { COUNTRIES } from '../data/countries';
-import { US_STATES, CA_PROVINCES, AU_STATES } from '../data/subdivisions';
+import { US_STATES, CA_PROVINCES, AU_STATES, EG_SUBDIVISIONS, OCEAN_THEMES, getOceanTheme } from '../data/subdivisions';
 import {
   ZoomIn,
   ZoomOut,
@@ -14,7 +14,9 @@ import {
   CheckCircle2,
   Circle,
   ChevronRight,
-  Layers
+  Layers,
+  Waves,
+  Check
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -27,6 +29,8 @@ interface WorldMapProps {
   toggleSubdivision: (subId: string, countryId: string) => void;
   onOpenRegionalModal: (country: Country) => void;
   highlightColor: string;
+  oceanColor?: string;
+  onSelectOceanColor?: (colorHex: string) => void;
   projectionType: 'naturalEarth' | 'mercator';
   onToggleProjection: () => void;
   focusedCountryId?: string | null;
@@ -56,6 +60,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({
   toggleSubdivision,
   onOpenRegionalModal,
   highlightColor,
+  oceanColor = '#080c14',
+  onSelectOceanColor,
   projectionType,
   onToggleProjection,
   focusedCountryId
@@ -71,6 +77,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({
 
   const [hovered, setHovered] = useState<HoveredFeature | null>(null);
   const [currentZoom, setCurrentZoom] = useState(1);
+  const [showOceanPicker, setShowOceanPicker] = useState(false);
+
+  const oceanTheme = useMemo(() => getOceanTheme(oceanColor), [oceanColor]);
 
   // Map dimensions
   const width = 1000;
@@ -140,7 +149,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
 
   const provinceMap = useMemo(() => {
     const map = new Map<string, Subdivision>();
-    [...CA_PROVINCES, ...AU_STATES].forEach(s => map.set(s.id, s));
+    [...CA_PROVINCES, ...AU_STATES, ...EG_SUBDIVISIONS].forEach(s => map.set(s.id, s));
     return map;
   }, []);
 
@@ -284,10 +293,15 @@ export const WorldMap: React.FC<WorldMapProps> = ({
   return (
     <div
       id="world-map-container"
-      className="relative w-full h-full min-h-[480px] bg-slate-950 overflow-hidden select-none touch-none flex flex-col justify-center items-center"
+      className="relative w-full h-full min-h-[480px] overflow-hidden select-none touch-none flex flex-col justify-center items-center transition-colors duration-300"
+      style={{ backgroundColor: oceanTheme.hex }}
     >
-      {/* Ocean background with radial gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/60 via-slate-950 to-slate-950 pointer-events-none" />
+      {/* Ocean ambient overlay */}
+      {oceanTheme.isLight ? (
+        <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/60 via-transparent to-black/15" />
+      ) : (
+        <div className="absolute inset-0 pointer-events-none opacity-60 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/40 via-transparent to-black/60" />
+      )}
 
       {/* Loading Overlay */}
       {isLoading && (
@@ -319,7 +333,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
             y={-height}
             width={width * 3}
             height={height * 3}
-            fill="#080c14"
+            fill={oceanTheme.hex}
             onClick={handleMouseLeave}
           />
 
@@ -327,10 +341,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({
           <path
             d={graticulePath}
             fill="none"
-            stroke="#1e293b"
+            stroke={oceanTheme.graticuleColor}
             strokeWidth="0.5"
             strokeDasharray="2 3"
-            opacity="0.4"
+            opacity={oceanTheme.graticuleOpacity}
             className="pointer-events-none"
           />
 
@@ -348,8 +362,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 else countryId = `geo-feature-${idx}`;
               }
 
-              // Skip USA, Canada, Australia here as we render them via states/provinces
-              if (countryId === '840' || countryId === '124' || countryId === '036') {
+              // Skip USA, Canada, Australia, Egypt here as we render them via states/provinces/regions
+              if (countryId === '840' || countryId === '124' || countryId === '036' || countryId === '818') {
                 return null;
               }
 
@@ -365,8 +379,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                   key={`country-${countryId}-${idx}`}
                   id={`country-path-${countryId}`}
                   d={path}
-                  fill={isVisited ? highlightColor : isHovered ? '#334155' : '#1e293b'}
-                  stroke={isVisited ? highlightColor : isHovered ? '#64748b' : '#334155'}
+                  fill={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverFill : oceanTheme.landFill}
+                  stroke={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverStroke : oceanTheme.landStroke}
                   strokeWidth={isHovered ? 1.5 : 0.6}
                   filter={isVisited ? 'url(#visited-glow)' : undefined}
                   className="transition-colors duration-150 cursor-pointer"
@@ -405,7 +419,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                   key={`us-state-${subId}-${idx}`}
                   id={`us-state-path-${subId}`}
                   d={path}
-                  fill={isVisited ? highlightColor : isHovered ? '#334155' : '#1e293b'}
+                  fill={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverFill : oceanTheme.landFill}
                   stroke={isVisited ? highlightColor : isHovered ? '#94a3b8' : '#475569'}
                   strokeWidth={isHovered ? 1.4 : 0.6}
                   filter={isVisited ? 'url(#visited-glow)' : undefined}
@@ -440,7 +454,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
             provincesGeo.features.map((feature: any, idx: number) => {
               const subId = feature.id;
               const country = feature.properties?.country;
-              const parentCountryId = country === 'Canada' ? '124' : country === 'Australia' ? '036' : null;
+              const parentCountryId = country === 'Canada' ? '124' : country === 'Australia' ? '036' : country === 'Egypt' ? '818' : null;
               if (!parentCountryId) return null;
 
               const provInfo = provinceMap.get(subId);
@@ -449,16 +463,16 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               if (!path) return null;
 
               const isHovered = hovered?.id === subId;
-              const flag = parentCountryId === '124' ? '🇨🇦' : '🇦🇺';
-              const parentNameHe = parentCountryId === '124' ? 'קנדה' : 'אוסטרליה';
-              const parentNameEn = parentCountryId === '124' ? 'Canada' : 'Australia';
+              const flag = parentCountryId === '124' ? '🇨🇦' : parentCountryId === '036' ? '🇦🇺' : '🇪🇬';
+              const parentNameHe = parentCountryId === '124' ? 'קנדה' : parentCountryId === '036' ? 'אוסטרליה' : 'מצרים';
+              const parentNameEn = parentCountryId === '124' ? 'Canada' : parentCountryId === '036' ? 'Australia' : 'Egypt';
 
               return (
                 <path
                   key={`prov-${subId}-${idx}`}
                   id={`prov-path-${subId}`}
                   d={path}
-                  fill={isVisited ? highlightColor : isHovered ? '#334155' : '#1e293b'}
+                  fill={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverFill : oceanTheme.landFill}
                   stroke={isVisited ? highlightColor : isHovered ? '#94a3b8' : '#475569'}
                   strokeWidth={isHovered ? 1.4 : 0.6}
                   filter={isVisited ? 'url(#visited-glow)' : undefined}
@@ -587,6 +601,71 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         >
           <Compass className="w-5 h-5" />
         </button>
+
+        <div className="h-px bg-slate-800 my-0.5" />
+
+        <div className="relative">
+          <button
+            id="toggle-ocean-color-btn"
+            onClick={() => setShowOceanPicker(!showOceanPicker)}
+            className={`p-2 rounded-xl transition-all cursor-pointer ${
+              showOceanPicker ? 'bg-cyan-500/20 text-cyan-400' : 'text-slate-300 hover:text-cyan-400 hover:bg-slate-800'
+            }`}
+            title="בחירת צבע רקע לים (אוקיינוס)"
+            aria-label="בחירת צבע רקע לים"
+          >
+            <Waves className="w-5 h-5" />
+          </button>
+
+          {/* Floating Ocean Color Popover */}
+          {showOceanPicker && (
+            <div
+              id="map-ocean-picker-popover"
+              className="absolute bottom-0 right-full mr-3 bg-slate-900/95 border border-slate-700/90 rounded-2xl p-3 shadow-2xl backdrop-blur-md text-slate-100 text-xs min-w-[220px] animate-in fade-in zoom-in-95 duration-150 z-30"
+              dir="rtl"
+            >
+              <div className="flex items-center justify-between pb-2 border-b border-slate-800 text-slate-200 font-semibold">
+                <span className="flex items-center gap-1.5">
+                  <Waves className="w-3.5 h-3.5 text-cyan-400" />
+                  צבע רקע לים:
+                </span>
+                <button
+                  onClick={() => setShowOceanPicker(false)}
+                  className="text-slate-400 hover:text-white p-0.5 rounded cursor-pointer"
+                  title="סגור"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="flex items-center justify-between gap-1.5 pt-2.5">
+                {OCEAN_THEMES.map(theme => {
+                  const isSelected = oceanColor.toLowerCase() === theme.hex.toLowerCase();
+                  return (
+                    <button
+                      key={theme.id}
+                      id={`map-ocean-theme-${theme.id}`}
+                      onClick={() => onSelectOceanColor?.(theme.hex)}
+                      className={`w-7 h-7 rounded-full border transition-all cursor-pointer flex items-center justify-center ${
+                        isSelected
+                          ? 'scale-110 ring-2 ring-cyan-400 ring-offset-2 ring-offset-slate-900 border-white'
+                          : 'border-slate-700 opacity-75 hover:opacity-100 hover:scale-105'
+                      }`}
+                      style={{ backgroundColor: theme.hex }}
+                      title={`${theme.nameHe} (${theme.nameEn})`}
+                    >
+                      {isSelected && (
+                        <Check className={`w-3.5 h-3.5 stroke-[3] ${theme.isLight ? 'text-slate-900' : 'text-white'}`} />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="text-[11px] text-slate-400 text-center pt-2 font-medium">
+                {oceanTheme.nameHe}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Quick Region Jump Pills (Top-Center / Left) */}

@@ -1,4 +1,4 @@
-import { RegionGroup, Subdivision } from '../types';
+import { OceanColorTheme, RegionGroup, Subdivision } from '../types';
 
 export const US_STATES: Subdivision[] = [
   // Alaska & Hawaii
@@ -95,10 +95,34 @@ export const AU_STATES: Subdivision[] = [
   { id: 'AUS-2653', countryId: '036', code: 'ACT', nameEn: 'Australian Capital Territory', nameHe: 'טריטוריית הבירה (קנברה)', regionGroup: 'au_act', regionGroupNameHe: 'טריטוריית הבירה', icon: '🏛️' }
 ];
 
+export const EG_SUBDIVISIONS: Subdivision[] = [
+  {
+    id: 'EG-SIN',
+    countryId: '818',
+    code: 'SIN',
+    nameEn: 'Sinai Peninsula',
+    nameHe: 'חצי האי סיני (שארם א-שייח׳, דהב, טאבה, נואיבה)',
+    regionGroup: 'eg_sinai',
+    regionGroupNameHe: 'אזור סיני',
+    icon: '🏖️'
+  },
+  {
+    id: 'EG-MAIN',
+    countryId: '818',
+    code: 'MAIN',
+    nameEn: 'Mainland Egypt',
+    nameHe: 'שאר מצרים (קהיר, הפירמידות, לוקסור, אלכסנדריה, אסואן)',
+    regionGroup: 'eg_mainland',
+    regionGroupNameHe: 'שאר המדינה',
+    icon: '🏛️'
+  }
+];
+
 export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...US_STATES,
   ...CA_PROVINCES,
-  ...AU_STATES
+  ...AU_STATES,
+  ...EG_SUBDIVISIONS
 ];
 
 export const REGION_GROUPS: RegionGroup[] = [
@@ -282,6 +306,24 @@ export const REGION_GROUPS: RegionGroup[] = [
     nameHe: 'טריטוריית הבירה (קנברה)',
     icon: '🏛️',
     subdivisionIds: ['AUS-2653']
+  },
+
+  // Egypt Regions
+  {
+    id: 'eg_sinai',
+    countryId: '818',
+    nameEn: 'Sinai Peninsula',
+    nameHe: 'חצי האי סיני (שארם, דהב, טאבה, נואיבה)',
+    icon: '🏖️',
+    subdivisionIds: ['EG-SIN']
+  },
+  {
+    id: 'eg_mainland',
+    countryId: '818',
+    nameEn: 'Mainland Egypt',
+    nameHe: 'שאר מצרים (קהיר, הפירמידות, לוקסור, אלכסנדריה, אסואן)',
+    icon: '🏛️',
+    subdivisionIds: ['EG-MAIN']
   }
 ];
 
@@ -328,3 +370,88 @@ export const HIGHLIGHT_THEMES = [
     glow: 'rgba(139, 92, 246, 0.4)'
   }
 ];
+
+// Ocean Background Color Themes (5 colors: Bright Sea Green, Warm Yellow, Classic Navy, Pearl Gray, Pure White)
+export const OCEAN_THEMES: OceanColorTheme[] = [
+  {
+    id: 'ocean-teal',
+    nameHe: 'טורקיז-ירקרק בהיר',
+    nameEn: 'Bright Sea Green',
+    hex: '#2dd4bf',
+    borderPreview: '#14b8a6',
+    isLight: true,
+    landFill: '#1e293b',
+    landStroke: '#334155',
+    landHoverFill: '#334155',
+    landHoverStroke: '#64748b',
+    graticuleColor: '#0f766e',
+    graticuleOpacity: 0.35
+  },
+  {
+    id: 'ocean-yellow',
+    nameHe: 'צהוב אטלס חם',
+    nameEn: 'Warm Atlas Yellow',
+    hex: '#fef08a',
+    borderPreview: '#facc15',
+    isLight: true,
+    landFill: '#1e293b',
+    landStroke: '#334155',
+    landHoverFill: '#334155',
+    landHoverStroke: '#64748b',
+    graticuleColor: '#ca8a04',
+    graticuleOpacity: 0.25
+  },
+  {
+    id: 'ocean-navy',
+    nameHe: 'כחול אוקיינוס',
+    nameEn: 'Classic Navy Ocean',
+    hex: '#080c14',
+    borderPreview: '#1e293b',
+    isLight: false,
+    landFill: '#1e293b',
+    landStroke: '#334155',
+    landHoverFill: '#334155',
+    landHoverStroke: '#64748b',
+    graticuleColor: '#1e293b',
+    graticuleOpacity: 0.4
+  },
+  {
+    id: 'ocean-pearl',
+    nameHe: 'אפור פנינה',
+    nameEn: 'Pearl Light Gray',
+    hex: '#e2e8f0',
+    borderPreview: '#cbd5e1',
+    isLight: true,
+    landFill: '#1e293b',
+    landStroke: '#334155',
+    landHoverFill: '#334155',
+    landHoverStroke: '#64748b',
+    graticuleColor: '#cbd5e1',
+    graticuleOpacity: 0.5
+  },
+  {
+    id: 'ocean-white',
+    nameHe: 'לבן צח',
+    nameEn: 'Pure White',
+    hex: '#ffffff',
+    borderPreview: '#e2e8f0',
+    isLight: true,
+    landFill: '#1e293b',
+    landStroke: '#334155',
+    landHoverFill: '#334155',
+    landHoverStroke: '#64748b',
+    graticuleColor: '#cbd5e1',
+    graticuleOpacity: 0.5
+  }
+];
+
+export function getOceanTheme(hexOrId?: string): OceanColorTheme {
+  if (!hexOrId) return OCEAN_THEMES[2]; // Default is Classic Navy
+  const found = OCEAN_THEMES.find(t => t.hex.toLowerCase() === hexOrId.toLowerCase() || t.id === hexOrId);
+  if (found) return found;
+  if (hexOrId === '#083344' || hexOrId === '#000000' || hexOrId === '#1e293b') {
+    if (hexOrId === '#083344') return OCEAN_THEMES[0];
+  }
+  return OCEAN_THEMES[2];
+}
+

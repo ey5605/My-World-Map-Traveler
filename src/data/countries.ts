@@ -1,4 +1,15 @@
-import { Country } from "../types";
+import { Country } from '../types';
+
+export const CONTINENTS = [
+  { id: 'אירופה', nameHe: 'אירופה' },
+  { id: 'אסיה', nameHe: 'אסיה' },
+  { id: 'אפריקה', nameHe: 'אפריקה' },
+  { id: 'צפון אמריקה', nameHe: 'צפון אמריקה' },
+  { id: 'דרום אמריקה', nameHe: 'דרום אמריקה' },
+  { id: 'אמריקה', nameHe: 'כל אמריקה' },
+  { id: 'אוקיאניה', nameHe: 'אוקיאניה' },
+  { id: 'אנטארקטיקה', nameHe: 'אנטארקטיקה' }
+];
 
 export const COUNTRIES: Country[] = [
   {
@@ -24,10 +35,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "887",
     "nameEn": "Yemen",
-    "nameHe": "Yemen",
+    "nameHe": "תימן",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -44,10 +55,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "862",
     "nameEn": "Venezuela",
-    "nameHe": "Venezuela",
+    "nameHe": "ונצואלה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "דרום אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -64,10 +75,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "548",
     "nameEn": "Vanuatu",
-    "nameHe": "Vanuatu",
+    "nameHe": "ונואטו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -94,70 +105,70 @@ export const COUNTRIES: Country[] = [
   {
     "id": "583",
     "nameEn": "Micronesia",
-    "nameHe": "Micronesia",
+    "nameHe": "מיקרונזיה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "584",
     "nameEn": "Marshall Is.",
-    "nameHe": "Marshall Is.",
+    "nameHe": "איי מרשל",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "580",
     "nameEn": "N. Mariana Is.",
-    "nameHe": "N. Mariana Is.",
+    "nameHe": "איי מריאנה הצפוניים",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "850",
     "nameEn": "U.S. Virgin Is.",
-    "nameHe": "U.S. Virgin Is.",
+    "nameHe": "איי הבתולה של ארה״ב",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "316",
     "nameEn": "Guam",
-    "nameHe": "Guam",
+    "nameHe": "גואם",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "016",
     "nameEn": "American Samoa",
-    "nameHe": "American Samoa",
+    "nameHe": "סמואה האמריקנית",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "630",
     "nameEn": "Puerto Rico",
-    "nameHe": "Puerto Rico",
+    "nameHe": "פוארטו ריקו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -174,117 +185,117 @@ export const COUNTRIES: Country[] = [
   {
     "id": "239",
     "nameEn": "S. Geo. and the Is.",
-    "nameHe": "S. Geo. and the Is.",
+    "nameHe": "ג׳ורג׳יה הדרומית ואיי סנדוויץ׳",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "דרום אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "086",
     "nameEn": "Br. Indian Ocean Ter.",
-    "nameHe": "Br. Indian Ocean Ter.",
+    "nameHe": "טריטוריית האוקיינוס ההודי הבריטית",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "654",
     "nameEn": "Saint Helena",
-    "nameHe": "Saint Helena",
+    "nameHe": "סנט הלנה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "612",
     "nameEn": "Pitcairn Is.",
-    "nameHe": "Pitcairn Is.",
+    "nameHe": "איי פיטקרן",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "660",
     "nameEn": "Anguilla",
-    "nameHe": "Anguilla",
+    "nameHe": "אנגווילה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "238",
     "nameEn": "Falkland Is.",
-    "nameHe": "Falkland Is.",
+    "nameHe": "איי פוקלנד",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "דרום אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "136",
     "nameEn": "Cayman Is.",
-    "nameHe": "Cayman Is.",
+    "nameHe": "איי קיימן",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "060",
     "nameEn": "Bermuda",
-    "nameHe": "Bermuda",
+    "nameHe": "ברמודה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "092",
     "nameEn": "British Virgin Is.",
-    "nameHe": "British Virgin Is.",
+    "nameHe": "איי הבתולה הבריטיים",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "796",
     "nameEn": "Turks and Caicos Is.",
-    "nameHe": "Turks and Caicos Is.",
+    "nameHe": "איי טורקס וקאיקוס",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "500",
     "nameEn": "Montserrat",
-    "nameHe": "Montserrat",
+    "nameHe": "מונטסראט",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "832",
     "nameEn": "Jersey",
-    "nameHe": "Jersey",
+    "nameHe": "ג׳רזי",
     "code2": "",
     "code3": "",
     "continent": "אירופה",
@@ -294,7 +305,7 @@ export const COUNTRIES: Country[] = [
   {
     "id": "831",
     "nameEn": "Guernsey",
-    "nameHe": "Guernsey",
+    "nameHe": "גרנזי",
     "code2": "",
     "code3": "",
     "continent": "אירופה",
@@ -304,7 +315,7 @@ export const COUNTRIES: Country[] = [
   {
     "id": "833",
     "nameEn": "Isle of Man",
-    "nameHe": "Isle of Man",
+    "nameHe": "האי מאן",
     "code2": "",
     "code3": "",
     "continent": "אירופה",
@@ -367,7 +378,7 @@ export const COUNTRIES: Country[] = [
     "nameHe": "טורקיה",
     "code2": "TR",
     "code3": "TUR",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🇹🇷",
     "hasSubdivisions": false
   },
@@ -384,40 +395,40 @@ export const COUNTRIES: Country[] = [
   {
     "id": "780",
     "nameEn": "Trinidad and Tobago",
-    "nameHe": "Trinidad and Tobago",
+    "nameHe": "טרינידד וטובגו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "776",
     "nameEn": "Tonga",
-    "nameHe": "Tonga",
+    "nameHe": "טונגה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "768",
     "nameEn": "Togo",
-    "nameHe": "Togo",
+    "nameHe": "טוגו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "626",
     "nameEn": "Timor-Leste",
-    "nameHe": "Timor-Leste",
+    "nameHe": "מזרח טימור",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -494,30 +505,30 @@ export const COUNTRIES: Country[] = [
   {
     "id": "748",
     "nameEn": "eSwatini",
-    "nameHe": "eSwatini",
+    "nameHe": "אסוואטיני (סוואזילנד)",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "740",
     "nameEn": "Suriname",
-    "nameHe": "Suriname",
+    "nameHe": "סורינאם",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "דרום אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "728",
     "nameEn": "S. Sudan",
-    "nameHe": "S. Sudan",
+    "nameHe": "דרום סודאן",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -574,10 +585,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "706",
     "nameEn": "Somalia",
-    "nameHe": "Somalia",
+    "nameHe": "סומליה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -594,10 +605,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "090",
     "nameEn": "Solomon Is.",
-    "nameHe": "Solomon Is.",
+    "nameHe": "איי שלמה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -634,10 +645,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "694",
     "nameEn": "Sierra Leone",
-    "nameHe": "Sierra Leone",
+    "nameHe": "סיירה לאון",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -684,10 +695,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "678",
     "nameEn": "São Tomé and Principe",
-    "nameHe": "São Tomé and Principe",
+    "nameHe": "סאו טומה ופרינסיפה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -704,40 +715,40 @@ export const COUNTRIES: Country[] = [
   {
     "id": "882",
     "nameEn": "Samoa",
-    "nameHe": "Samoa",
+    "nameHe": "סמואה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "670",
     "nameEn": "St. Vin. and Gren.",
-    "nameHe": "St. Vin. and Gren.",
+    "nameHe": "סנט וינסנט והגרנדינים",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "662",
     "nameEn": "Saint Lucia",
-    "nameHe": "Saint Lucia",
+    "nameHe": "סנט לוסיה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "659",
     "nameEn": "St. Kitts and Nevis",
-    "nameHe": "St. Kitts and Nevis",
+    "nameHe": "סנט קיטס ונוויס",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -834,10 +845,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "598",
     "nameEn": "Papua New Guinea",
-    "nameHe": "Papua New Guinea",
+    "nameHe": "פפואה גינאה החדשה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -854,10 +865,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "585",
     "nameEn": "Palau",
-    "nameHe": "Palau",
+    "nameHe": "פלאו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -914,20 +925,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "562",
     "nameEn": "Niger",
-    "nameHe": "Niger",
+    "nameHe": "ניז׳ר",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "558",
     "nameEn": "Nicaragua",
-    "nameHe": "Nicaragua",
+    "nameHe": "ניקרגואה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -944,20 +955,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "570",
     "nameEn": "Niue",
-    "nameHe": "Niue",
+    "nameHe": "ניואה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "184",
     "nameEn": "Cook Is.",
-    "nameHe": "Cook Is.",
+    "nameHe": "איי קוק",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -974,20 +985,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "533",
     "nameEn": "Aruba",
-    "nameHe": "Aruba",
+    "nameHe": "ארובה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "531",
     "nameEn": "Curaçao",
-    "nameHe": "Curaçao",
+    "nameHe": "קוראסאו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1004,10 +1015,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "520",
     "nameEn": "Nauru",
-    "nameHe": "Nauru",
+    "nameHe": "נאורו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1024,10 +1035,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "508",
     "nameEn": "Mozambique",
-    "nameHe": "Mozambique",
+    "nameHe": "מוזמביק",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1044,10 +1055,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "732",
     "nameEn": "W. Sahara",
-    "nameHe": "W. Sahara",
+    "nameHe": "סהרה המערבית",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1114,10 +1125,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "478",
     "nameEn": "Mauritania",
-    "nameHe": "Mauritania",
+    "nameHe": "מאוריטניה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1134,10 +1145,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "466",
     "nameEn": "Mali",
-    "nameHe": "Mali",
+    "nameHe": "מאלי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1164,10 +1175,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "454",
     "nameEn": "Malawi",
-    "nameHe": "Malawi",
+    "nameHe": "מלאווי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1234,20 +1245,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "430",
     "nameEn": "Liberia",
-    "nameHe": "Liberia",
+    "nameHe": "ליבריה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "426",
     "nameEn": "Lesotho",
-    "nameHe": "Lesotho",
+    "nameHe": "לסוטו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1314,10 +1325,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "296",
     "nameEn": "Kiribati",
-    "nameHe": "Kiribati",
+    "nameHe": "קיריבטי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1394,10 +1405,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "275",
     "nameEn": "Palestine",
-    "nameHe": "Palestine",
+    "nameHe": "הרשות הפלסטינית",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1474,50 +1485,50 @@ export const COUNTRIES: Country[] = [
   {
     "id": "340",
     "nameEn": "Honduras",
-    "nameHe": "Honduras",
+    "nameHe": "הונדורס",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "332",
     "nameEn": "Haiti",
-    "nameHe": "Haiti",
+    "nameHe": "האיטי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "328",
     "nameEn": "Guyana",
-    "nameHe": "Guyana",
+    "nameHe": "גיאנה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "דרום אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "624",
     "nameEn": "Guinea-Bissau",
-    "nameHe": "Guinea-Bissau",
+    "nameHe": "גינאה-ביסאו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "324",
     "nameEn": "Guinea",
-    "nameHe": "Guinea",
+    "nameHe": "גינאה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1534,10 +1545,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "308",
     "nameEn": "Grenada",
-    "nameHe": "Grenada",
+    "nameHe": "גרנדה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1584,20 +1595,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "270",
     "nameEn": "Gambia",
-    "nameHe": "Gambia",
+    "nameHe": "גמביה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "266",
     "nameEn": "Gabon",
-    "nameHe": "Gabon",
+    "nameHe": "גבון",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1614,77 +1625,77 @@ export const COUNTRIES: Country[] = [
   {
     "id": "666",
     "nameEn": "St. Pierre and Miquelon",
-    "nameHe": "St. Pierre and Miquelon",
+    "nameHe": "סן פייר ומיקלון",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "876",
     "nameEn": "Wallis and Futuna Is.",
-    "nameHe": "Wallis and Futuna Is.",
+    "nameHe": "ואליס ופוטונה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "663",
     "nameEn": "St-Martin",
-    "nameHe": "St-Martin",
+    "nameHe": "סן מרטן",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "652",
     "nameEn": "St-Barthélemy",
-    "nameHe": "St-Barthélemy",
+    "nameHe": "סן ברתלמי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "258",
     "nameEn": "Fr. Polynesia",
-    "nameHe": "Fr. Polynesia",
+    "nameHe": "פולינזיה הצרפתית",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "540",
     "nameEn": "New Caledonia",
-    "nameHe": "New Caledonia",
+    "nameHe": "קלדוניה החדשה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "260",
     "nameEn": "Fr. S. Antarctic Lands",
-    "nameHe": "Fr. S. Antarctic Lands",
+    "nameHe": "הארצות הדרומיות והאנטארקטיות של צרפת",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אנטארקטיקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "248",
     "nameEn": "Åland",
-    "nameHe": "Åland",
+    "nameHe": "איי אולנד",
     "code2": "",
     "code3": "",
     "continent": "אירופה",
@@ -1704,10 +1715,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "242",
     "nameEn": "Fiji",
-    "nameHe": "Fiji",
+    "nameHe": "פיג׳י",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1734,30 +1745,30 @@ export const COUNTRIES: Country[] = [
   {
     "id": "232",
     "nameEn": "Eritrea",
-    "nameHe": "Eritrea",
+    "nameHe": "אריתריאה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "226",
     "nameEn": "Eq. Guinea",
-    "nameHe": "Eq. Guinea",
+    "nameHe": "גינאה המשוונית",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "222",
     "nameEn": "El Salvador",
-    "nameHe": "El Salvador",
+    "nameHe": "אל סלוודור",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1769,7 +1780,7 @@ export const COUNTRIES: Country[] = [
     "code3": "EGY",
     "continent": "אפריקה",
     "flag": "🇪🇬",
-    "hasSubdivisions": false
+    "hasSubdivisions": true
   },
   {
     "id": "218",
@@ -1794,20 +1805,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "212",
     "nameEn": "Dominica",
-    "nameHe": "Dominica",
+    "nameHe": "דומיניקה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "262",
     "nameEn": "Djibouti",
-    "nameHe": "Djibouti",
+    "nameHe": "ג׳יבוטי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1824,7 +1835,7 @@ export const COUNTRIES: Country[] = [
   {
     "id": "234",
     "nameEn": "Faeroe Is.",
-    "nameHe": "Faeroe Is.",
+    "nameHe": "איי פארו",
     "code2": "",
     "code3": "",
     "continent": "אירופה",
@@ -1857,7 +1868,7 @@ export const COUNTRIES: Country[] = [
     "nameHe": "צפון קפריסין",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1867,7 +1878,7 @@ export const COUNTRIES: Country[] = [
     "nameHe": "קפריסין",
     "code2": "CY",
     "code3": "CYP",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🇨🇾",
     "hasSubdivisions": false
   },
@@ -1894,10 +1905,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "384",
     "nameEn": "Côte d'Ivoire",
-    "nameHe": "Côte d'Ivoire",
+    "nameHe": "חוף השנהב",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1914,30 +1925,30 @@ export const COUNTRIES: Country[] = [
   {
     "id": "180",
     "nameEn": "Dem. Rep. Congo",
-    "nameHe": "Dem. Rep. Congo",
+    "nameHe": "הרפובליקה הדמוקרטית של קונגו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "178",
     "nameEn": "Congo",
-    "nameHe": "Congo",
+    "nameHe": "הרפובליקה של קונגו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "174",
     "nameEn": "Comoros",
-    "nameHe": "Comoros",
+    "nameHe": "קומורו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1964,20 +1975,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "446",
     "nameEn": "Macao",
-    "nameHe": "Macao",
+    "nameHe": "מקאו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "344",
     "nameEn": "Hong Kong",
-    "nameHe": "Hong Kong",
+    "nameHe": "הונג קונג",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -1994,30 +2005,30 @@ export const COUNTRIES: Country[] = [
   {
     "id": "148",
     "nameEn": "Chad",
-    "nameHe": "Chad",
+    "nameHe": "צ׳אד",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "140",
     "nameEn": "Central African Rep.",
-    "nameHe": "Central African Rep.",
+    "nameHe": "הרפובליקה המרכז-אפריקאית",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "132",
     "nameEn": "Cabo Verde",
-    "nameHe": "Cabo Verde",
+    "nameHe": "כף ורדה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2034,10 +2045,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "120",
     "nameEn": "Cameroon",
-    "nameHe": "Cameroon",
+    "nameHe": "קמרון",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2064,20 +2075,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "108",
     "nameEn": "Burundi",
-    "nameHe": "Burundi",
+    "nameHe": "בורונדי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "854",
     "nameEn": "Burkina Faso",
-    "nameHe": "Burkina Faso",
+    "nameHe": "בורקינה פאסו",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2094,10 +2105,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "096",
     "nameEn": "Brunei",
-    "nameHe": "Brunei",
+    "nameHe": "ברוניי",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אסיה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2154,20 +2165,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "204",
     "nameEn": "Benin",
-    "nameHe": "Benin",
+    "nameHe": "בנין",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "084",
     "nameEn": "Belize",
-    "nameHe": "Belize",
+    "nameHe": "בליז",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2194,10 +2205,10 @@ export const COUNTRIES: Country[] = [
   {
     "id": "052",
     "nameEn": "Barbados",
-    "nameHe": "Barbados",
+    "nameHe": "ברבדוס",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2274,20 +2285,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "334",
     "nameEn": "Heard I. and McDonald Is.",
-    "nameHe": "Heard I. and McDonald Is.",
+    "nameHe": "האי הרד ואיי מקדונלד",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אנטארקטיקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "574",
     "nameEn": "Norfolk Island",
-    "nameHe": "Norfolk Island",
+    "nameHe": "אי נורפוק",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אוקיאניה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2314,20 +2325,20 @@ export const COUNTRIES: Country[] = [
   {
     "id": "028",
     "nameEn": "Antigua and Barb.",
-    "nameHe": "Antigua and Barb.",
+    "nameHe": "אנטיגואה וברבודה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
   {
     "id": "024",
     "nameEn": "Angola",
-    "nameHe": "Angola",
+    "nameHe": "אנגולה",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "אפריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   },
@@ -2394,20 +2405,11 @@ export const COUNTRIES: Country[] = [
   {
     "id": "534",
     "nameEn": "Sint Maarten",
-    "nameHe": "Sint Maarten",
+    "nameHe": "סינט מארטן",
     "code2": "",
     "code3": "",
-    "continent": "אירופה",
+    "continent": "צפון אמריקה",
     "flag": "🌐",
     "hasSubdivisions": false
   }
-];
-
-export const CONTINENTS = [
-  { id: 'אירופה', nameHe: 'אירופה' },
-  { id: 'אסיה', nameHe: 'אסיה' },
-  { id: 'אמריקה', nameHe: 'אמריקה' },
-  { id: 'אפריקה', nameHe: 'אפריקה' },
-  { id: 'אוקיאניה', nameHe: 'אוקיאניה' },
-  { id: 'אנטארקטיקה', nameHe: 'אנטארקטיקה' }
 ];

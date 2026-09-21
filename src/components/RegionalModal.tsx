@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Country, RegionGroup, Subdivision } from '../types';
-import { REGION_GROUPS, US_STATES, CA_PROVINCES, AU_STATES } from '../data/subdivisions';
+import { REGION_GROUPS, US_STATES, CA_PROVINCES, AU_STATES, EG_SUBDIVISIONS } from '../data/subdivisions';
 import { Check, ChevronDown, ChevronUp, MapPin, Search, Sparkles, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -30,7 +30,9 @@ export const RegionalModal: React.FC<RegionalModalProps> = ({
     us_west_coast: true,
     us_east_coast: true,
     us_alaska: true,
-    us_hawaii: true
+    us_hawaii: true,
+    eg_sinai: true,
+    eg_mainland: true
   });
 
   if (!isOpen) return null;
@@ -43,6 +45,8 @@ export const RegionalModal: React.FC<RegionalModalProps> = ({
     countrySubs = CA_PROVINCES;
   } else if (country.id === '036') {
     countrySubs = AU_STATES;
+  } else if (country.id === '818') {
+    countrySubs = EG_SUBDIVISIONS;
   }
 
   const countryRegionGroups: RegionGroup[] = REGION_GROUPS.filter(g => g.countryId === country.id);

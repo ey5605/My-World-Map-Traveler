@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { VisitedStorageData } from '../types';
-import { ALL_SUBDIVISIONS, REGION_GROUPS, HIGHLIGHT_THEMES } from '../data/subdivisions';
+import { ALL_SUBDIVISIONS, REGION_GROUPS, HIGHLIGHT_THEMES, OCEAN_THEMES } from '../data/subdivisions';
 
 const STORAGE_KEY = 'world_travel_tracker_v1';
 
@@ -8,6 +8,7 @@ const DEFAULT_DATA: VisitedStorageData = {
   visitedCountryIds: [],
   visitedSubdivisionIds: [],
   highlightColor: HIGHLIGHT_THEMES[0].hex,
+  oceanColor: OCEAN_THEMES[2].hex,
   projection: 'naturalEarth',
   version: 1
 };
@@ -22,11 +23,16 @@ export function useTravelStorage() {
         let countryIds: string[] = Array.isArray(parsed.visitedCountryIds) ? parsed.visitedCountryIds : [];
 
         // Ensure countries with subdivisions are only in countryIds if they actually have visited subdivisions
-        const countriesWithSubs = ['840', '124', '036'];
+        const countriesWithSubs = ['840', '124', '036', '818'];
         for (const cid of countriesWithSubs) {
           const subs = ALL_SUBDIVISIONS.filter(s => s.countryId === cid);
           const hasVisitedSub = subs.some(s => subIds.includes(s.id));
-          if (!hasVisitedSub) {
+          if (countryIds.includes(cid) && !hasVisitedSub) {
+            // If the country was marked visited prior to subdivision support, mark its subdivisions as visited
+            subs.forEach(s => {
+              if (!subIds.includes(s.id)) subIds.push(s.id);
+            });
+          } else if (!hasVisitedSub) {
             countryIds = countryIds.filter(id => id !== cid);
           } else if (!countryIds.includes(cid)) {
             countryIds.push(cid);
@@ -210,6 +216,14 @@ export function useTravelStorage() {
     }));
   }, []);
 
+  // Set ocean background color
+  const setOceanColor = useCallback((colorHex: string) => {
+    setStorageData(prev => ({
+      ...prev,
+      oceanColor: colorHex
+    }));
+  }, []);
+
   // Set map projection
   const setProjection = useCallback((proj: 'naturalEarth' | 'mercator') => {
     setStorageData(prev => ({
@@ -224,6 +238,7 @@ export function useTravelStorage() {
       visitedCountryIds: [],
       visitedSubdivisionIds: [],
       highlightColor: HIGHLIGHT_THEMES[0].hex,
+      oceanColor: OCEAN_THEMES[2].hex,
       projection: 'naturalEarth',
       version: 1
     };
@@ -276,6 +291,7 @@ export function useTravelStorage() {
     toggleSubdivision,
     toggleRegionGroup,
     setHighlightColor,
+    setOceanColor,
     setProjection,
     resetAll,
     exportData,

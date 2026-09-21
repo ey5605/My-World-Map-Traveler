@@ -44,6 +44,7 @@ export interface VisitedStorageData {
   visitedDates?: Record<string, string>; // optional date or note
   notes?: Record<string, string>;
   highlightColor: string;
+  oceanColor?: string;
   projection: 'naturalEarth' | 'mercator';
   version: number;
 }
@@ -55,4 +56,19 @@ export interface HighlightColorTheme {
   hex: string;
   glow: string;
   borderHex: string;
+}
+
+export interface OceanColorTheme {
+  id: string;
+  nameHe: string;
+  nameEn: string;
+  hex: string;
+  borderPreview: string;
+  isLight: boolean;
+  landFill: string;
+  landStroke: string;
+  landHoverFill: string;
+  landHoverStroke: string;
+  graticuleColor: string;
+  graticuleOpacity: number;
 }
