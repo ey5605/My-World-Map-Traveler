@@ -88,10 +88,22 @@ export const WorldMap: React.FC<WorldMapProps> = ({
   // Load geojson data on mount
   useEffect(() => {
     let isMounted = true;
+    const base = import.meta.env.BASE_URL || './';
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+
     Promise.all([
-      fetch('/data/world-countries.json').then(r => r.json()),
-      fetch('/data/us-states.json').then(r => r.json()),
-      fetch('/data/provinces.json').then(r => r.json())
+      fetch(`${cleanBase}data/world-countries.json`).then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      }),
+      fetch(`${cleanBase}data/us-states.json`).then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      }),
+      fetch(`${cleanBase}data/provinces.json`).then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
     ])
       .then(([world, us, prov]) => {
         if (isMounted) {
@@ -102,8 +114,25 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         }
       })
       .catch(err => {
-        console.error('Failed to load map data:', err);
-        if (isMounted) setIsLoading(false);
+        console.error('Failed to load map data with base URL, attempting fallback:', err);
+        // Fallback to relative path without prefix
+        Promise.all([
+          fetch('./data/world-countries.json').then(r => r.json()),
+          fetch('./data/us-states.json').then(r => r.json()),
+          fetch('./data/provinces.json').then(r => r.json())
+        ])
+          .then(([world, us, prov]) => {
+            if (isMounted) {
+              setWorldGeo(world);
+              setUsStatesGeo(us);
+              setProvincesGeo(prov);
+              setIsLoading(false);
+            }
+          })
+          .catch(fallbackErr => {
+            console.error('Failed to load map data on fallback:', fallbackErr);
+            if (isMounted) setIsLoading(false);
+          });
       });
 
     return () => {
