@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Country, RegionGroup, Subdivision } from '../types';
-import { REGION_GROUPS, US_STATES, CA_PROVINCES, AU_STATES, EG_SUBDIVISIONS } from '../data/subdivisions';
+import { REGION_GROUPS, ALL_SUBDIVISIONS } from '../data/subdivisions';
 import { Check, ChevronDown, ChevronUp, MapPin, Search, Sparkles, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -26,30 +26,16 @@ export const RegionalModal: React.FC<RegionalModalProps> = ({
   highlightColor
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedRegions, setExpandedRegions] = useState<Record<string, boolean>>({
-    us_west_coast: true,
-    us_east_coast: true,
-    us_alaska: true,
-    us_hawaii: true,
-    eg_sinai: true,
-    eg_mainland: true
-  });
-
-  if (!isOpen) return null;
+  const [expandedRegions, setExpandedRegions] = useState<Record<string, boolean>>({});
 
   // Get relevant subdivisions and region groups for this country
-  let countrySubs: Subdivision[] = [];
-  if (country.id === '840') {
-    countrySubs = US_STATES;
-  } else if (country.id === '124') {
-    countrySubs = CA_PROVINCES;
-  } else if (country.id === '036') {
-    countrySubs = AU_STATES;
-  } else if (country.id === '818') {
-    countrySubs = EG_SUBDIVISIONS;
-  }
+  const countrySubs: Subdivision[] = useMemo(() => {
+    return ALL_SUBDIVISIONS.filter(s => s.countryId === country.id);
+  }, [country.id]);
 
-  const countryRegionGroups: RegionGroup[] = REGION_GROUPS.filter(g => g.countryId === country.id);
+  const countryRegionGroups: RegionGroup[] = useMemo(() => {
+    return REGION_GROUPS.filter(g => g.countryId === country.id);
+  }, [country.id]);
 
   // Calculate statistics
   const visitedSubsCount = countrySubs.filter(s => visitedSubdivisionSet.has(s.id)).length;
@@ -94,6 +80,8 @@ export const RegionalModal: React.FC<RegionalModalProps> = ({
       return sub && (sub.nameHe.toLowerCase().includes(query) || sub.nameEn.toLowerCase().includes(query) || sub.code.toLowerCase().includes(query));
     });
   });
+
+  if (!isOpen) return null;
 
   return (
     <div
@@ -180,7 +168,7 @@ export const RegionalModal: React.FC<RegionalModalProps> = ({
               const visitedInGroup = groupSubs.filter(s => visitedSubdivisionSet.has(s.id)).length;
               const isGroupAllVisited = groupSubs.length > 0 && visitedInGroup === groupSubs.length;
               const isGroupPartial = visitedInGroup > 0 && !isGroupAllVisited;
-              const isExpanded = expandedRegions[group.id] || Boolean(query);
+              const isExpanded = (expandedRegions[group.id] ?? true) || Boolean(query);
 
               return (
                 <div

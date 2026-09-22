@@ -5,7 +5,7 @@ import * as d3Selection from 'd3-selection';
 import 'd3-transition';
 import { Country, Subdivision } from '../types';
 import { COUNTRIES } from '../data/countries';
-import { US_STATES, CA_PROVINCES, AU_STATES, EG_SUBDIVISIONS, OCEAN_THEMES, getOceanTheme } from '../data/subdivisions';
+import { US_STATES, ALL_SUBDIVISIONS, OCEAN_THEMES, getOceanTheme } from '../data/subdivisions';
 import {
   ZoomIn,
   ZoomOut,
@@ -178,7 +178,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
 
   const provinceMap = useMemo(() => {
     const map = new Map<string, Subdivision>();
-    [...CA_PROVINCES, ...AU_STATES, ...EG_SUBDIVISIONS].forEach(s => map.set(s.id, s));
+    ALL_SUBDIVISIONS.forEach(s => map.set(s.id, s));
     return map;
   }, []);
 
@@ -348,13 +348,6 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         className="w-full h-full cursor-grab active:cursor-grabbing max-w-full"
         onMouseLeave={handleMouseLeave}
       >
-        <defs>
-          {/* Subtle glow filter for visited countries */}
-          <filter id="visited-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor={highlightColor} floodOpacity="0.55" />
-          </filter>
-        </defs>
-
         <g ref={gRef} id="map-zoom-group">
           {/* Ocean outline */}
           <rect
@@ -391,8 +384,18 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 else countryId = `geo-feature-${idx}`;
               }
 
-              // Skip USA, Canada, Australia, Egypt here as we render them via states/provinces/regions
-              if (countryId === '840' || countryId === '124' || countryId === '036' || countryId === '818') {
+              // Skip countries that are rendered via states/provinces/regions
+              // USA (840), Canada (124), Australia (036), Egypt (818), Russia (643), China (156), Brazil (076), India (356)
+              if (
+                countryId === '840' ||
+                countryId === '124' ||
+                countryId === '036' ||
+                countryId === '818' ||
+                countryId === '643' ||
+                countryId === '156' ||
+                countryId === '076' ||
+                countryId === '356'
+              ) {
                 return null;
               }
 
@@ -409,9 +412,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                   id={`country-path-${countryId}`}
                   d={path}
                   fill={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverFill : oceanTheme.landFill}
-                  stroke={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverStroke : oceanTheme.landStroke}
-                  strokeWidth={isHovered ? 1.5 : 0.6}
-                  filter={isVisited ? 'url(#visited-glow)' : undefined}
+                  stroke={isHovered ? '#ffffff' : isVisited ? '#090d16' : oceanTheme.landStroke}
+                  strokeWidth={isHovered ? 1.8 : isVisited ? 1.0 : 0.6}
+                  vectorEffect="non-scaling-stroke"
                   className="transition-colors duration-150 cursor-pointer"
                   onClick={e => handleCountryClick(countryId, e)}
                   onMouseMove={e =>
@@ -449,9 +452,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                   id={`us-state-path-${subId}`}
                   d={path}
                   fill={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverFill : oceanTheme.landFill}
-                  stroke={isVisited ? highlightColor : isHovered ? '#94a3b8' : '#475569'}
-                  strokeWidth={isHovered ? 1.4 : 0.6}
-                  filter={isVisited ? 'url(#visited-glow)' : undefined}
+                  stroke={isHovered ? '#ffffff' : isVisited ? '#090d16' : '#475569'}
+                  strokeWidth={isHovered ? 1.8 : isVisited ? 1.0 : 0.6}
+                  vectorEffect="non-scaling-stroke"
                   className="transition-colors duration-150 cursor-pointer"
                   onClick={e => handleSubdivisionClick(subId, '840', e)}
                   onMouseMove={e =>
@@ -478,13 +481,26 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               );
             })}
 
-          {/* Canada & Australia Provinces / Territories */}
+          {/* Subdivisions: Canada, Australia, Egypt, China, Russia, Brazil, India */}
           {provincesGeo &&
             provincesGeo.features.map((feature: any, idx: number) => {
               const subId = feature.id;
               const country = feature.properties?.country;
-              const parentCountryId = country === 'Canada' ? '124' : country === 'Australia' ? '036' : country === 'Egypt' ? '818' : null;
-              if (!parentCountryId) return null;
+              const meta: { id: string; flag: string; nameHe: string; nameEn: string } | undefined = {
+                Canada: { id: '124', flag: '🇨🇦', nameHe: 'קנדה', nameEn: 'Canada' },
+                Australia: { id: '036', flag: '🇦🇺', nameHe: 'אוסטרליה', nameEn: 'Australia' },
+                Egypt: { id: '818', flag: '🇪🇬', nameHe: 'מצרים', nameEn: 'Egypt' },
+                China: { id: '156', flag: '🇨🇳', nameHe: 'סין', nameEn: 'China' },
+                Russia: { id: '643', flag: '🇷🇺', nameHe: 'רוסיה', nameEn: 'Russia' },
+                Brazil: { id: '076', flag: '🇧🇷', nameHe: 'ברזיל', nameEn: 'Brazil' },
+                India: { id: '356', flag: '🇮🇳', nameHe: 'הודו', nameEn: 'India' }
+              }[country as string];
+
+              if (!meta) return null;
+              const parentCountryId = meta.id;
+              const flag = meta.flag;
+              const parentNameHe = meta.nameHe;
+              const parentNameEn = meta.nameEn;
 
               const provInfo = provinceMap.get(subId);
               const isVisited = visitedSubdivisionSet.has(subId);
@@ -492,9 +508,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               if (!path) return null;
 
               const isHovered = hovered?.id === subId;
-              const flag = parentCountryId === '124' ? '🇨🇦' : parentCountryId === '036' ? '🇦🇺' : '🇪🇬';
-              const parentNameHe = parentCountryId === '124' ? 'קנדה' : parentCountryId === '036' ? 'אוסטרליה' : 'מצרים';
-              const parentNameEn = parentCountryId === '124' ? 'Canada' : parentCountryId === '036' ? 'Australia' : 'Egypt';
+              const displayNameHe = provInfo?.nameHe || feature.properties?.name || '';
+              const displayNameEn = provInfo?.nameEn || feature.properties?.name || '';
 
               return (
                 <path
@@ -502,21 +517,21 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                   id={`prov-path-${subId}`}
                   d={path}
                   fill={isVisited ? highlightColor : isHovered ? oceanTheme.landHoverFill : oceanTheme.landFill}
-                  stroke={isVisited ? highlightColor : isHovered ? '#94a3b8' : '#475569'}
-                  strokeWidth={isHovered ? 1.4 : 0.6}
-                  filter={isVisited ? 'url(#visited-glow)' : undefined}
+                  stroke={isHovered ? '#ffffff' : isVisited ? '#090d16' : '#475569'}
+                  strokeWidth={isHovered ? 1.8 : isVisited ? 1.0 : 0.6}
+                  vectorEffect="non-scaling-stroke"
                   className="transition-colors duration-150 cursor-pointer"
                   onClick={e => handleSubdivisionClick(subId, parentCountryId, e)}
                   onMouseMove={e =>
                     handleMouseMove(
                       {
                         id: subId,
-                        nameHe: provInfo?.nameHe || feature.properties.name,
-                        nameEn: provInfo?.nameEn || feature.properties.name,
+                        nameHe: provInfo?.regionGroupNameHe ? `${displayNameHe} (${provInfo.regionGroupNameHe})` : displayNameHe,
+                        nameEn: displayNameEn,
                         flag,
                         isSubdivision: true,
-                        subdivisionNameHe: provInfo?.nameHe || feature.properties.name,
-                        subdivisionNameEn: provInfo?.nameEn || feature.properties.name,
+                        subdivisionNameHe: displayNameHe,
+                        subdivisionNameEn: displayNameEn,
                         regionGroupNameHe: provInfo?.regionGroupNameHe,
                         parentCountryId,
                         parentCountryNameHe: parentNameHe,
@@ -583,16 +598,16 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         </div>
       )}
 
-      {/* Floating Map Zoom & Action Controls (Bottom-Right) */}
+      {/* Floating Map Zoom & Action Controls (Bottom-Right, elevated on mobile) */}
       <div
         id="map-floating-controls"
-        className="absolute bottom-4 right-4 z-20 flex flex-col gap-1.5 bg-slate-900/90 border border-slate-800/90 rounded-2xl p-1.5 shadow-2xl backdrop-blur-md"
+        className="absolute bottom-20 sm:bottom-6 md:bottom-4 right-3 sm:right-4 z-20 flex flex-col gap-1.5 bg-slate-900/95 border border-slate-800/90 rounded-2xl p-1.5 shadow-2xl backdrop-blur-md"
         dir="ltr"
       >
         <button
           id="zoom-in-btn"
           onClick={handleZoomIn}
-          className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
+          className="p-2.5 sm:p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
           title="זום פנימה (+)"
           aria-label="זום פנימה"
         >
@@ -602,7 +617,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         <button
           id="zoom-out-btn"
           onClick={handleZoomOut}
-          className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
+          className="p-2.5 sm:p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
           title="זום החוצה (-)"
           aria-label="זום החוצה"
         >
@@ -614,7 +629,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         <button
           id="reset-view-btn"
           onClick={handleResetZoom}
-          className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
+          className="p-2.5 sm:p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
           title="איפוס מפה למרכז"
           aria-label="איפוס מפה למרכז"
         >
@@ -624,7 +639,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
         <button
           id="toggle-projection-btn"
           onClick={onToggleProjection}
-          className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
+          className="p-2.5 sm:p-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
           title={`החלף היטל מפה (נוכחי: ${projectionType === 'naturalEarth' ? 'גלובלי טבעי' : 'מרקטור'})`}
           aria-label="החלף היטל מפה"
         >
@@ -637,7 +652,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
           <button
             id="toggle-ocean-color-btn"
             onClick={() => setShowOceanPicker(!showOceanPicker)}
-            className={`p-2 rounded-xl transition-all cursor-pointer ${
+            className={`p-2.5 sm:p-2 rounded-xl transition-all cursor-pointer ${
               showOceanPicker ? 'bg-cyan-500/20 text-cyan-400' : 'text-slate-300 hover:text-cyan-400 hover:bg-slate-800'
             }`}
             title="בחירת צבע רקע לים (אוקיינוס)"

@@ -1,4 +1,4 @@
-import { OceanColorTheme, RegionGroup, Subdivision } from '../types';
+import { OceanColorTheme, RegionGroup, Subdivision, HighlightColorTheme } from '../types';
 
 export const US_STATES: Subdivision[] = [
   // Alaska & Hawaii
@@ -92,7 +92,8 @@ export const AU_STATES: Subdivision[] = [
   { id: 'AUS-2655', countryId: '036', code: 'SA', nameEn: 'South Australia', nameHe: 'דרום אוסטרליה (אדלייד)', regionGroup: 'au_sa', regionGroupNameHe: 'דרום אוסטרליה', icon: '🍷' },
   { id: 'AUS-2660', countryId: '036', code: 'TAS', nameEn: 'Tasmania', nameHe: 'טסמניה (הובארט)', regionGroup: 'au_tas', regionGroupNameHe: 'טסמניה', icon: '🌲' },
   { id: 'AUS-2650', countryId: '036', code: 'NT', nameEn: 'Northern Territory', nameHe: 'הטריטוריה הצפונית (אולורו)', regionGroup: 'au_nt', regionGroupNameHe: 'הטריטוריה הצפונית', icon: '🐊' },
-  { id: 'AUS-2653', countryId: '036', code: 'ACT', nameEn: 'Australian Capital Territory', nameHe: 'טריטוריית הבירה (קנברה)', regionGroup: 'au_act', regionGroupNameHe: 'טריטוריית הבירה', icon: '🏛️' }
+  { id: 'AUS-2653', countryId: '036', code: 'ACT', nameEn: 'Australian Capital Territory', nameHe: 'טריטוריית הבירה (קנברה)', regionGroup: 'au_act', regionGroupNameHe: 'טריטוריית הבירה', icon: '🏛️' },
+  { id: 'AUS-1932', countryId: '036', code: 'JBT', nameEn: 'Jervis Bay Territory', nameHe: 'טריטוריית מפרץ ג׳רוויס', regionGroup: 'au_act', regionGroupNameHe: 'טריטוריית הבירה', icon: '⚓' }
 ];
 
 export const EG_SUBDIVISIONS: Subdivision[] = [
@@ -118,11 +119,206 @@ export const EG_SUBDIVISIONS: Subdivision[] = [
   }
 ];
 
+export const CN_SUBDIVISIONS: Subdivision[] = [
+  { id: 'CHN-1150', countryId: '156', code: 'CN-GS', nameEn: "Gansu", nameHe: "גאנסו (דונחואנג ודרך המשי)", regionGroup: 'cn_northwest', regionGroupNameHe: "צפון-מערב סין ודרך המשי", icon: '🐪' },
+  { id: 'CHN-1151', countryId: '156', code: 'CN-QH', nameEn: "Qinghai", nameHe: "צ׳ינגהאי (אגם צ׳ינגהאי ורמת טיבט)", regionGroup: 'cn_northwest', regionGroupNameHe: "צפון-מערב סין ודרך המשי", icon: '🦅' },
+  { id: 'CHN-1152', countryId: '156', code: 'CN-GX', nameEn: "Guangxi", nameHe: "גואנגשי (גווילין ויאנגשואו)", regionGroup: 'cn_south', regionGroupNameHe: "דרום ומרכז סין", icon: '🏞️' },
+  { id: 'CHN-1153', countryId: '156', code: 'CN-GZ', nameEn: "Guizhou", nameHe: "גוויג׳ואו", regionGroup: 'cn_southwest', regionGroupNameHe: "דרום-מערב סין", icon: '🌉' },
+  { id: 'CHN-1154', countryId: '156', code: 'CN-CQ', nameEn: "Chongqing", nameHe: "צ׳ונגצ׳ינג", regionGroup: 'cn_southwest', regionGroupNameHe: "דרום-מערב סין", icon: '🌶️' },
+  { id: 'CHN-1155', countryId: '156', code: 'CN-BJ', nameEn: "Beijing", nameHe: "בייג׳ינג (עיר הבירה)", regionGroup: 'cn_north', regionGroupNameHe: "צפון סין", icon: '🏛️' },
+  { id: 'CHN-1178', countryId: '156', code: 'CN-FJ', nameEn: "Fujian", nameHe: "פוג׳יין (שיאמן)", regionGroup: 'cn_east', regionGroupNameHe: "מזרח סין", icon: '🌊' },
+  { id: 'CHN-1179', countryId: '156', code: 'CN-AH', nameEn: "Anhui", nameHe: "אנחווי (הרי חואנגשאן)", regionGroup: 'cn_east', regionGroupNameHe: "מזרח סין", icon: '🏔️' },
+  { id: 'CHN-1180', countryId: '156', code: 'CN-GD', nameEn: "Guangdong", nameHe: "גואנגדונג (שנג׳ן, גואנגג׳ואו וקנטון)", regionGroup: 'cn_south', regionGroupNameHe: "דרום ומרכז סין", icon: '🏭' },
+  { id: 'CHN-1662', countryId: '156', code: 'CN-XZ', nameEn: "Xizang", nameHe: "טיבט (להסה והימלאיה)", regionGroup: 'cn_southwest', regionGroupNameHe: "דרום-מערב סין", icon: '🏔️' },
+  { id: 'CHN-1756', countryId: '156', code: 'CN-XJ', nameEn: "Xinjiang", nameHe: "שינג׳יאנג (אורומצ׳י וקשגאר)", regionGroup: 'cn_northwest', regionGroupNameHe: "צפון-מערב סין ודרך המשי", icon: '🏜️' },
+  { id: 'CHN-1775', countryId: '156', code: 'CN-HI', nameEn: "Hainan", nameHe: "האינאן (האי הטרופי וסניה)", regionGroup: 'cn_south', regionGroupNameHe: "דרום ומרכז סין", icon: '🏝️' },
+  { id: 'CHN-1803', countryId: '156', code: 'CN-NX', nameEn: "Ningxia", nameHe: "נינגשיה", regionGroup: 'cn_northwest', regionGroupNameHe: "צפון-מערב סין ודרך המשי", icon: '🍇' },
+  { id: 'CHN-1804', countryId: '156', code: 'CN-SN', nameEn: "Shaanxi", nameHe: "שאאנשי (שיאן וחיילי הטרקוטה)", regionGroup: 'cn_northwest', regionGroupNameHe: "צפון-מערב סין ודרך המשי", icon: '🏺' },
+  { id: 'CHN-1805', countryId: '156', code: 'CN-SX', nameEn: "Shanxi", nameHe: "שאנשי (דאטונג)", regionGroup: 'cn_north', regionGroupNameHe: "צפון סין", icon: '⛩️' },
+  { id: 'CHN-1807', countryId: '156', code: 'CN-HB', nameEn: "Hubei", nameHe: "חוביי (ווהאן וסכר שלושת הערוצים)", regionGroup: 'cn_south', regionGroupNameHe: "דרום ומרכז סין", icon: '🌊' },
+  { id: 'CHN-1808', countryId: '156', code: 'CN-HN', nameEn: "Hunan", nameHe: "חונאן (פארק ג׳אנגג׳יאג׳יה / אווטאר)", regionGroup: 'cn_south', regionGroupNameHe: "דרום ומרכז סין", icon: '⛰️' },
+  { id: 'CHN-1809', countryId: '156', code: 'CN-SC', nameEn: "Sichuan", nameHe: "סצ׳ואן (צ׳נגדו, פנדות וג׳יוג׳איגואו)", regionGroup: 'cn_southwest', regionGroupNameHe: "דרום-מערב סין", icon: '🐼' },
+  { id: 'CHN-1810', countryId: '156', code: 'CN-YN', nameEn: "Yunnan", nameHe: "יונאן (קונמינג, דאלי וליג׳יאנג)", regionGroup: 'cn_southwest', regionGroupNameHe: "דרום-מערב סין", icon: '🌺' },
+  { id: 'CHN-1811', countryId: '156', code: 'CN-HE', nameEn: "Hebei", nameHe: "חביי", regionGroup: 'cn_north', regionGroupNameHe: "צפון סין", icon: '🌾' },
+  { id: 'CHN-1812', countryId: '156', code: 'CN-HA', nameEn: "Henan", nameHe: "חנאן (מנזר שאולין)", regionGroup: 'cn_south', regionGroupNameHe: "דרום ומרכז סין", icon: '🥋' },
+  { id: 'CHN-1813', countryId: '156', code: 'CN-LN', nameEn: "Liaoning", nameHe: "ליאונינג (דאליאן)", regionGroup: 'cn_northeast', regionGroupNameHe: "צפון-מזרח סין (מנצ׳וריה)", icon: '🚢' },
+  { id: 'CHN-1814', countryId: '156', code: 'CN-SD', nameEn: "Shandong", nameHe: "שאנדונג (צ׳ינגדאו)", regionGroup: 'cn_east', regionGroupNameHe: "מזרח סין", icon: '🍺' },
+  { id: 'CHN-1816', countryId: '156', code: 'CN-TJ', nameEn: "Tianjin", nameHe: "טיאנג׳ין", regionGroup: 'cn_north', regionGroupNameHe: "צפון סין", icon: '🏙️' },
+  { id: 'CHN-1817', countryId: '156', code: 'CN-JX', nameEn: "Jiangxi", nameHe: "ג׳יאנגשי", regionGroup: 'cn_east', regionGroupNameHe: "מזרח סין", icon: '🏺' },
+  { id: 'CHN-1818', countryId: '156', code: 'CN-JS', nameEn: "Jiangsu", nameHe: "ג׳יאנגסו (נאנג׳ינג וסוג׳ואו)", regionGroup: 'cn_east', regionGroupNameHe: "מזרח סין", icon: '🏯' },
+  { id: 'CHN-1819', countryId: '156', code: 'CN-SH', nameEn: "Shanghai", nameHe: "שנגחאי", regionGroup: 'cn_east', regionGroupNameHe: "מזרח סין", icon: '🏙️' },
+  { id: 'CHN-1820', countryId: '156', code: 'CN-ZJ', nameEn: "Zhejiang", nameHe: "ג׳ג׳יאנג (האנגג׳ואו)", regionGroup: 'cn_east', regionGroupNameHe: "מזרח סין", icon: '🍵' },
+  { id: 'CHN-1828', countryId: '156', code: 'CN-JL', nameEn: "Jilin", nameHe: "ג׳ילין (הרי צ׳אנגבאי)", regionGroup: 'cn_northeast', regionGroupNameHe: "צפון-מזרח סין (מנצ׳וריה)", icon: '🌲' },
+  { id: 'CHN-1838', countryId: '156', code: 'CN-NM', nameEn: "Inner Mongol", nameHe: "מונגוליה הפנימית", regionGroup: 'cn_north', regionGroupNameHe: "צפון סין", icon: '🐎' },
+  { id: 'CHN-1839', countryId: '156', code: 'CN-HL', nameEn: "Heilongjiang", nameHe: "חיילונגג׳יאנג (פסטיבל הקרח בחרבין)", regionGroup: 'cn_northeast', regionGroupNameHe: "צפון-מזרח סין (מנצ׳וריה)", icon: '❄️' }
+];
+
+export const RU_SUBDIVISIONS: Subdivision[] = [
+  { id: 'RUS-2167', countryId: '643', code: 'RU-TOM', nameEn: "Tomsk", nameHe: "טומסק (עיר האוניברסיטאות והעץ)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל", icon: '🪵' },
+  { id: 'RUS-2279', countryId: '643', code: 'RU-AD', nameEn: "Adygey", nameHe: "רפובליקת אדיגיה", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז" },
+  { id: 'RUS-2280', countryId: '643', code: 'RU-KC', nameEn: "Karachay-Cherkess", nameHe: "קראצ׳אי-צ׳רקסיה (דומבאי)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז" },
+  { id: 'RUS-2303', countryId: '643', code: 'RU-IN', nameEn: "Ingush", nameHe: "רפובליקת אינגושטיה", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז" },
+  { id: 'RUS-2304', countryId: '643', code: 'RU-KB', nameEn: "Kabardin-Balkar", nameHe: "קברדינו-בלקריה (הר אלברוס הגבוה)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🏔️' },
+  { id: 'RUS-2305', countryId: '643', code: 'RU-SE', nameEn: "North Ossetia", nameHe: "צפון אוסטיה - אלניה", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז" },
+  { id: 'RUS-2306', countryId: '643', code: 'RU-STA', nameEn: "Stavropol'", nameHe: "סטברופול (פיאטיגורסק וקיסלובודסק)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '♨️' },
+  { id: 'RUS-2321', countryId: '643', code: 'RU-CHU', nameEn: "Chukchi Autonomous Okrug", nameHe: "צ׳וקוטקה (מיצר ברינג והקוטב הצפוני)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '🦭' },
+  { id: 'RUS-2324', countryId: '643', code: 'RU-KGD', nameEn: "Kaliningrad", nameHe: "קלינינגרד (מובלעת הים הבלטי)", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג", icon: '⚓' },
+  { id: 'RUS-2333', countryId: '643', code: 'RU-MUR', nameEn: "Murmansk", nameHe: "מורמנסק (חוג הקוטב והזוהר הצפוני)", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג", icon: '🌌' },
+  { id: 'RUS-2334', countryId: '643', code: 'RU-NGR', nameEn: "Novgorod", nameHe: "נובגורוד הגדולה", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג" },
+  { id: 'RUS-2335', countryId: '643', code: 'RU-PSK', nameEn: "Pskov", nameHe: "פסקוב", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג" },
+  { id: 'RUS-2336', countryId: '643', code: 'RU-LEN', nameEn: "Leningrad", nameHe: "מחוז לנינגרד (סביבות פטרבורג)", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג", icon: '🌲' },
+  { id: 'RUS-2337', countryId: '643', code: 'RU-SPE', nameEn: "City of St. Petersburg", nameHe: "סנקט פטרבורג (ארמון החורף וההרמיטאז׳)", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג", icon: '🏰' },
+  { id: 'RUS-2342', countryId: '643', code: 'RU-BRY', nameEn: "Bryansk", nameHe: "בריאנסק", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2343', countryId: '643', code: 'RU-SMO', nameEn: "Smolensk", nameHe: "סמולנסק", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2353', countryId: '643', code: 'RU-KR', nameEn: "Karelia", nameHe: "רפובליקת קרליה (אגמי לדוגה ואונגה)", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג", icon: '🛶' },
+  { id: 'RUS-2354', countryId: '643', code: 'RU-ARK', nameEn: "Arkhangel'sk", nameHe: "ארכנגלסק (הים הלבן)", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג", icon: '❄️' },
+  { id: 'RUS-2355', countryId: '643', code: 'RU-IVA', nameEn: "Ivanovo", nameHe: "איבנובו (עיר הטקסטיל)", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2359', countryId: '643', code: 'RU-VLG', nameEn: "Vologda", nameHe: "וולוגדה", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג" },
+  { id: 'RUS-2356', countryId: '643', code: 'RU-KOS', nameEn: "Kostroma", nameHe: "קוסטרומה (טבעת הזהב)", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2357', countryId: '643', code: 'RU-NIZ', nameEn: "Nizhegorod", nameHe: "ניז׳ני נובגורוד (מפגש הוולגה והאוקה)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה", icon: '🏰' },
+  { id: 'RUS-2358', countryId: '643', code: 'RU-TVE', nameEn: "Tver'", nameHe: "טבר", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2360', countryId: '643', code: 'RU-YAR', nameEn: "Yaroslavl'", nameHe: "ירוסלבל (טבעת הזהב)", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז", icon: '🏰' },
+  { id: 'RUS-2361', countryId: '643', code: 'RU-KLU', nameEn: "Kaluga", nameHe: "קלוגה", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2362', countryId: '643', code: 'RU-KRS', nameEn: "Kursk", nameHe: "קורסק", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2363', countryId: '643', code: 'RU-LIP', nameEn: "Lipetsk", nameHe: "ליפצק", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2364', countryId: '643', code: 'RU-MOW', nameEn: "Moskovskaya", nameHe: "מחוז מוסקבה (סביבות הבירה)", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז", icon: '🏘️' },
+  { id: 'RUS-2365', countryId: '643', code: 'RU-MOS', nameEn: "Moskva", nameHe: "מוסקבה (עיר הבירה)", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז", icon: '🏛️' },
+  { id: 'RUS-2366', countryId: '643', code: 'RU-ORL', nameEn: "Orel", nameHe: "אוריול", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2367', countryId: '643', code: 'RU-ROS', nameEn: "Rostov", nameHe: "רוסטוב על הדון", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🚢' },
+  { id: 'RUS-2368', countryId: '643', code: 'RU-TUL', nameEn: "Tula", nameHe: "טולה", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2369', countryId: '643', code: 'RU-VGG', nameEn: "Volgograd", nameHe: "וולגוגרד (סטלינגרד לשעבר)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🎖️' },
+  { id: 'RUS-2370', countryId: '643', code: 'RU-BEL', nameEn: "Belgorod", nameHe: "בלגורוד", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2371', countryId: '643', code: 'RU-KDA', nameEn: "Krasnodar", nameHe: "קרסנודאר (סוצ׳י וחוף הים השחור)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🌴' },
+  { id: 'RUS-2372', countryId: '643', code: 'RU-MO', nameEn: "Mordovia", nameHe: "רפובליקת מורדוביה (סרנסק)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2373', countryId: '643', code: 'RU-PNZ', nameEn: "Penza", nameHe: "פנזה", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2374', countryId: '643', code: 'RU-RYA', nameEn: "Ryazan'", nameHe: "ריאזאן", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2375', countryId: '643', code: 'RU-TAM', nameEn: "Tambov", nameHe: "טמבוב", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2376', countryId: '643', code: 'RU-VLA', nameEn: "Vladimir", nameHe: "ולדימיר (טבעת הזהב)", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז", icon: '⛪' },
+  { id: 'RUS-2377', countryId: '643', code: 'RU-VOR', nameEn: "Voronezh", nameHe: "וורונז׳", regionGroup: 'ru_central', regionGroupNameHe: "מחוז מוסקבה והמרכז" },
+  { id: 'RUS-2378', countryId: '643', code: 'RU-BA', nameEn: "Bashkortostan", nameHe: "רפובליקת בשקורטוסטן (אופה)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה", icon: '🍯' },
+  { id: 'RUS-2379', countryId: '643', code: 'RU-CHE', nameEn: "Chelyabinsk", nameHe: "צ׳ליאבינסק", regionGroup: 'ru_ural', regionGroupNameHe: "הרי האורל", icon: '🏭' },
+  { id: 'RUS-2380', countryId: '643', code: 'RU-KGN', nameEn: "Kurgan", nameHe: "קורגן", regionGroup: 'ru_ural', regionGroupNameHe: "הרי האורל" },
+  { id: 'RUS-2381', countryId: '643', code: 'RU-NEN', nameEn: "Nenets", nameHe: "המחוז האוטונומי של הניינץ", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג" },
+  { id: 'RUS-2382', countryId: '643', code: 'RU-YAN', nameEn: "Yamal-Nenets", nameHe: "ימלו-ננץ (חצי האי ימאל והקוטב)", regionGroup: 'ru_ural', regionGroupNameHe: "הרי האורל", icon: '❄️' },
+  { id: 'RUS-2383', countryId: '643', code: 'RU-KO', nameEn: "Komi", nameHe: "רפובליקת קומי", regionGroup: 'ru_northwest', regionGroupNameHe: "צפון-מערב רוסיה וסנקט פטרבורג" },
+  { id: 'RUS-2384', countryId: '643', code: 'RU-KIR', nameEn: "Kirov", nameHe: "קירוב", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2385', countryId: '643', code: 'RU-ME', nameEn: "Mariy-El", nameHe: "רפובליקת מארי אל (יושקר-אולה)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2386', countryId: '643', code: 'RU-SVE', nameEn: "Sverdlovsk", nameHe: "סברדלובסק (יקטרינבורג וקו הגבול אירופה-אסיה)", regionGroup: 'ru_ural', regionGroupNameHe: "הרי האורל", icon: '💎' },
+  { id: 'RUS-2387', countryId: '643', code: 'RU-UD', nameEn: "Udmurt", nameHe: "רפובליקת אודמורטיה (איז׳בסק)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2388', countryId: '643', code: 'RU-AST', nameEn: "Astrakhan'", nameHe: "אסטרחן (דלתת הוולגה והים הכספי)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🐟' },
+  { id: 'RUS-2389', countryId: '643', code: 'RU-CU', nameEn: "Chuvash", nameHe: "רפובליקת צ׳ובשיה (צ׳בוקסרי)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2390', countryId: '643', code: 'RU-KL', nameEn: "Kalmyk", nameHe: "רפובליקת קלמיקיה (מקדשים בודהיסטיים)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🛕' },
+  { id: 'RUS-2392', countryId: '643', code: 'RU-SAM', nameEn: "Samara", nameHe: "סמארה", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה", icon: '🚀' },
+  { id: 'RUS-2391', countryId: '643', code: 'RU-ORE', nameEn: "Orenburg", nameHe: "אורנבורג", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2393', countryId: '643', code: 'RU-SAR', nameEn: "Saratov", nameHe: "סראטוב", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2394', countryId: '643', code: 'RU-TA', nameEn: "Tatarstan", nameHe: "רפובליקת טטרסטן (קאזאן)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה", icon: '🕌' },
+  { id: 'RUS-2395', countryId: '643', code: 'RU-ULY', nameEn: "Ul'yanovsk", nameHe: "אוליאנובסק", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-2396', countryId: '643', code: 'RU-KHM', nameEn: "Khanty-Mansiy", nameHe: "חנטי ומנסי - יוגרה", regionGroup: 'ru_ural', regionGroupNameHe: "הרי האורל" },
+  { id: 'RUS-2397', countryId: '643', code: 'RU-OMS', nameEn: "Omsk", nameHe: "אומסק", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל" },
+  { id: 'RUS-2398', countryId: '643', code: 'RU-TYU', nameEn: "Tyumen'", nameHe: "טיומן (העיר הרוסית הראשונה בסיביר)", regionGroup: 'ru_ural', regionGroupNameHe: "הרי האורל", icon: '♨️' },
+  { id: 'RUS-2399', countryId: '643', code: 'RU-ALT', nameEn: "Altay", nameHe: "מחוז אלטאי (ברנאול)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל" },
+  { id: 'RUS-2400', countryId: '643', code: 'RU-AL', nameEn: "Gorno-Altay", nameHe: "רפובליקת אלטאי (הרי אלטאי הקסומים והבלאחה)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל", icon: '🏔️' },
+  { id: 'RUS-2401', countryId: '643', code: 'RU-KEM', nameEn: "Kemerovo", nameHe: "קמרובו (שריגש וסקי בקוזבאס)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל", icon: '⛷️' },
+  { id: 'RUS-2402', countryId: '643', code: 'RU-KK', nameEn: "Khakass", nameHe: "רפובליקת חקסיה", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל" },
+  { id: 'RUS-2403', countryId: '643', code: 'RU-NVS', nameEn: "Novosibirsk", nameHe: "נובוסיבירסק (בירת סיביר ואקדמגורודוק)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל", icon: '🐻' },
+  { id: 'RUS-2416', countryId: '643', code: 'RU-CE', nameEn: "Chechnya", nameHe: "רפובליקת צ׳צ׳ניה (גרוזני)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🕌' },
+  { id: 'RUS-2417', countryId: '643', code: 'RU-DA', nameEn: "Dagestan", nameHe: "רפובליקת דגסטן (הרי הקווקז ודרבנט)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '⛰️' },
+  { id: 'RUS-2602', countryId: '643', code: 'RU-IRK', nameEn: "Irkutsk", nameHe: "אירקוטסק (שער לאגם באיקל)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל", icon: '🌊' },
+  { id: 'RUS-2603', countryId: '643', code: 'RU-KYA', nameEn: "Krasnoyarsk", nameHe: "מחוז קרסנויארסק (עמודי סטולבי)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל", icon: '🌲' },
+  { id: 'RUS-2605', countryId: '643', code: 'RU-TY', nameEn: "Tuva", nameHe: "רפובליקת טובה (שירת הגרון ומרכז אסיה)", regionGroup: 'ru_siberia', regionGroupNameHe: "סיביר ואגם באיקל", icon: '🎶' },
+  { id: 'RUS-2606', countryId: '643', code: 'RU-BU', nameEn: "Buryat", nameHe: "רפובליקת בוריאטיה (אולן-אודה ומזרח באיקל)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '🏮' },
+  { id: 'RUS-2609', countryId: '643', code: 'RU-AMU', nameEn: "Amur", nameHe: "מחוז אמור (בלגובשצ׳נסק)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה" },
+  { id: 'RUS-2610', countryId: '643', code: 'RU-ZAB', nameEn: "Chita", nameHe: "עבר הבאיקל (צ׳יטה)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה" },
+  { id: 'RUS-2611', countryId: '643', code: 'RU-PRI', nameEn: "Primor'ye", nameHe: "פרימוריה (ולדיווסטוק וחוף האוקיינוס השקט)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '🐅' },
+  { id: 'RUS-2612', countryId: '643', code: 'RU-SA', nameEn: "Sakha (Yakutia)", nameHe: "רפובליקת סאחה / יקוטיה (קוטב הקור ועמודי לנה)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '🧊' },
+  { id: 'RUS-2613', countryId: '643', code: 'RU-YEV', nameEn: "Yevrey", nameHe: "המחוז היהודי האוטונומי (בירוביג׳אן)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '✡️' },
+  { id: 'RUS-2614', countryId: '643', code: 'RU-KHA', nameEn: "Khabarovsk", nameHe: "חברובסק (נהר אמור)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '🚢' },
+  { id: 'RUS-2615', countryId: '643', code: 'RU-MAG', nameEn: "Maga Buryatdan", nameHe: "מגדן (ים אוחוצק)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה" },
+  { id: 'RUS-2616', countryId: '643', code: 'RU-SAK', nameEn: "Sakhalin", nameHe: "מחוז סחלין ואיי קוריל", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '🏝️' },
+  { id: 'RUS-283', countryId: '643', code: 'UA-43', nameEn: "Crimea", nameHe: "חצי האי קרים (יאלטה וסימפרופול)", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '🏖️' },
+  { id: 'RUS-3200', countryId: '643', code: 'RU-PER', nameEn: "Perm'", nameHe: "מחוז פרם (מערב האורל)", regionGroup: 'ru_volga', regionGroupNameHe: "אגן נהר הוולגה" },
+  { id: 'RUS-3468', countryId: '643', code: 'RU-KAM', nameEn: "Kamchatka", nameHe: "חצי האי קמצ׳טקה (הרי געש, דובים וגייזרים)", regionGroup: 'ru_fareast', regionGroupNameHe: "המזרח הרחוק וקמצ׳טקה", icon: '🌋' },
+  { id: 'RUS-5482', countryId: '643', code: 'UA-40', nameEn: "Sevastopol", nameHe: "סבסטופול", regionGroup: 'ru_south', regionGroupNameHe: "דרום רוסיה, סוצ׳י והקווקז", icon: '⚓' }
+];
+
+export const BR_SUBDIVISIONS: Subdivision[] = [
+  { id: 'BRA-576', countryId: '076', code: 'BR-AC', nameEn: "Acre", nameHe: "אקרי", regionGroup: 'br_north', regionGroupNameHe: "צפון ברזיל והאמזונס" },
+  { id: 'BRA-595', countryId: '076', code: 'BR-RO', nameEn: "Rondônia", nameHe: "רונדוניה", regionGroup: 'br_north', regionGroupNameHe: "צפון ברזיל והאמזונס" },
+  { id: 'BRA-670', countryId: '076', code: 'BR-RR', nameEn: "Roraima", nameHe: "רוריימה (הר רוריימה)", regionGroup: 'br_north', regionGroupNameHe: "צפון ברזיל והאמזונס", icon: '⛰️' },
+  { id: 'BRA-592', countryId: '076', code: 'BR-AM', nameEn: "Amazonas", nameHe: "אמזונאס (יער הגשם, מנאוס ונהר האמזונס)", regionGroup: 'br_north', regionGroupNameHe: "צפון ברזיל והאמזונס", icon: '🌳' },
+  { id: 'BRA-594', countryId: '076', code: 'BR-PA', nameEn: "Pará", nameHe: "פארה (בלם ושפך האמזונס)", regionGroup: 'br_north', regionGroupNameHe: "צפון ברזיל והאמזונס", icon: '🦜' },
+  { id: 'BRA-600', countryId: '076', code: 'BR-MS', nameEn: "Mato Grosso do Sul", nameHe: "מאטו גרוסו דו סול (בוניטו והפנטנל הדרומי)", regionGroup: 'br_central', regionGroupNameHe: "מרכז-מערב ברזיל", icon: '🐠' },
+  { id: 'BRA-681', countryId: '076', code: 'BR-AP', nameEn: "Amapá", nameHe: "אמפה", regionGroup: 'br_north', regionGroupNameHe: "צפון ברזיל והאמזונס" },
+  { id: 'BRA-602', countryId: '076', code: 'BR-MT', nameEn: "Mato Grosso", nameHe: "מאטו גרוסו (הפנטנל ויער האמזונס)", regionGroup: 'br_central', regionGroupNameHe: "מרכז-מערב ברזיל", icon: '🐆' },
+  { id: 'BRA-613', countryId: '076', code: 'BR-PR', nameEn: "Paraná", nameHe: "פרנה (קוריטיבה ומפלי איגואסו)", regionGroup: 'br_south', regionGroupNameHe: "דרום ברזיל", icon: '💦' },
+  { id: 'BRA-599', countryId: '076', code: 'BR-DF', nameEn: "Distrito Federal", nameHe: "המחוז הפדרלי (ברזיליה עיר הבירה)", regionGroup: 'br_central', regionGroupNameHe: "מרכז-מערב ברזיל", icon: '🏛️' },
+  { id: 'BRA-1294', countryId: '076', code: 'BR-GO', nameEn: "Goiás", nameHe: "גויאס (גויאניה וצ׳פדה דוס ויידיירוס)", regionGroup: 'br_central', regionGroupNameHe: "מרכז-מערב ברזיל", icon: '🌾' },
+  { id: 'BRA-596', countryId: '076', code: 'BR-TO', nameEn: "Tocantins", nameHe: "טוקנטינס (פארק ז׳לאפאו)", regionGroup: 'br_north', regionGroupNameHe: "צפון ברזיל והאמזונס", icon: '💦' },
+  { id: 'BRA-1311', countryId: '076', code: 'BR-SP', nameEn: "São Paulo", nameHe: "סאו פאולו (המטרופולין הגדול)", regionGroup: 'br_southeast', regionGroupNameHe: "דרום-מזרח ברזיל", icon: '🏙️' },
+  { id: 'BRA-593', countryId: '076', code: 'BR-MA', nameEn: "Maranhão", nameHe: "מרניאו (דיונות לנסויס מרניינסס)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל", icon: '🏜️' },
+  { id: 'BRA-627', countryId: '076', code: 'BR-RJ', nameEn: "Rio de Janeiro", nameHe: "ריו דה ז׳ניירו (קופהקבנה, הקורקובדו וקרנבל)", regionGroup: 'br_southeast', regionGroupNameHe: "דרום-מזרח ברזיל", icon: '🏖️' },
+  { id: 'BRA-622', countryId: '076', code: 'BR-PI', nameEn: "Piauí", nameHe: "פיאווי (פארק סרה דה קפיברה)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל" },
+  { id: 'BRA-601', countryId: '076', code: 'BR-MG', nameEn: "Minas Gerais", nameHe: "מינאס ז׳ראיס (בלו הוריזונטה ואורו פרטו)", regionGroup: 'br_southeast', regionGroupNameHe: "דרום-מזרח ברזיל", icon: '☕' },
+  { id: 'BRA-625', countryId: '076', code: 'BR-ES', nameEn: "Espírito Santo", nameHe: "אספיריטו סאנטו (ויטוריה)", regionGroup: 'br_southeast', regionGroupNameHe: "דרום-מזרח ברזיל", icon: '⛵' },
+  { id: 'BRA-624', countryId: '076', code: 'BR-BA', nameEn: "Bahia", nameHe: "באהיה (סלבדור ופלוריניו)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל", icon: '🥁' },
+  { id: 'BRA-621', countryId: '076', code: 'BR-CE', nameEn: "Ceará", nameHe: "סיארה (פורטלזה וז׳ריקווקוארה)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל", icon: '🌴' },
+  { id: 'BRA-629', countryId: '076', code: 'BR-SE', nameEn: "Sergipe", nameHe: "סרז׳יפה (אראקז׳ו)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל" },
+  { id: 'BRA-623', countryId: '076', code: 'BR-AL', nameEn: "Alagoas", nameHe: "אלגואס (מסייאו והבריכות הטבעיות)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל", icon: '🌊' },
+  { id: 'BRA-628', countryId: '076', code: 'BR-RN', nameEn: "Rio Grande do Norte", nameHe: "ריו גראנדה דו נורטה (נאטאל ופיפה)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל", icon: '☀️' },
+  { id: 'BRA-1313', countryId: '076', code: 'BR-PE', nameEn: "Pernambuco", nameHe: "פרנמבוקו (רסיפה, אולינדה ופרננדו די נורוניה)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל", icon: '🏝️' },
+  { id: 'BRA-626', countryId: '076', code: 'BR-PB', nameEn: "Paraíba", nameHe: "פאראיבה (ז׳ואאו פסואה)", regionGroup: 'br_northeast', regionGroupNameHe: "צפון-מזרח ברזיל" },
+  { id: 'BRA-614', countryId: '076', code: 'BR-SC', nameEn: "Santa Catarina", nameHe: "סנטה קטרינה (פלוריאנופוליס וחופי הגלישה)", regionGroup: 'br_south', regionGroupNameHe: "דרום ברזיל", icon: '🏄' },
+  { id: 'BRA-612', countryId: '076', code: 'BR-RS', nameEn: "Rio Grande do Sul", nameHe: "ריו גראנדה דו סול (פורטו אלגרה ותרבות הגאוצ׳ו)", regionGroup: 'br_south', regionGroupNameHe: "דרום ברזיל", icon: '🥩' }
+];
+
+export const IN_SUBDIVISIONS: Subdivision[] = [
+  { id: 'IND-3259', countryId: '356', code: 'IN-SK', nameEn: "Sikkim", nameHe: "סיקים (הר קנצ׳נג׳נגה ומנזרי בודהיזם)", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)", icon: '🏔️' },
+  { id: 'IND-20011', countryId: '356', code: 'IN-TG', nameEn: "Telangana", nameHe: "טלנגאנה (היידראבאד ומצודת גולקונדה)", regionGroup: 'in_south', regionGroupNameHe: "דרום הודו", icon: '💎' },
+  { id: 'IND-20012', countryId: '356', code: 'IN-LA', nameEn: "Ladakh", nameHe: "לדאק (לה, עמק נוברה ומנזרים טיבטיים)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '🦅' },
+  { id: 'IND-2427', countryId: '356', code: 'IN-CH', nameEn: "Chandigarh", nameHe: "צ׳אנדיגאר (העיר המתוכננת של לה קורבוזיה)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '🏛️' },
+  { id: 'IND-2428', countryId: '356', code: 'IN-DL', nameEn: "Delhi", nameHe: "דלהי (ניו דלהי, עיר הבירה)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '🏛️' },
+  { id: 'IND-2429', countryId: '356', code: 'IN-HP', nameEn: "Himachal Pradesh", nameHe: "הימאצ׳ל פרדש (מנאלי, דהרמסאלה ושימלה)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '🏔️' },
+  { id: 'IND-2430', countryId: '356', code: 'IN-HR', nameEn: "Haryana", nameHe: "הריאנה (גורגאון)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה" },
+  { id: 'IND-2431', countryId: '356', code: 'IN-JK', nameEn: "Jammu and Kashmir", nameHe: "ג׳אמו וקשמיר (סרינגאר ועמק קשמיר)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '❄️' },
+  { id: 'IND-2441', countryId: '356', code: 'IN-AP', nameEn: "Andhra Pradesh", nameHe: "אנדרה פרדש (ויזאג ומקדש טירופאטי)", regionGroup: 'in_south', regionGroupNameHe: "דרום הודו", icon: '🛕' },
+  { id: 'IND-2442', countryId: '356', code: 'IN-KL', nameEn: "Kerala", nameHe: "קראלה (חופי ורקלה, תעלות בקווטרס ומטעי תה במונאר)", regionGroup: 'in_south', regionGroupNameHe: "דרום הודו", icon: '🌴' },
+  { id: 'IND-2443', countryId: '356', code: 'IN-LD', nameEn: "Lakshadweep", nameHe: "לקשאדוויפ (איי האלמוגים)", regionGroup: 'in_south', regionGroupNameHe: "דרום הודו", icon: '🏝️' },
+  { id: 'IND-2444', countryId: '356', code: 'IN-OR', nameEn: "Odisha", nameHe: "אודישה (מקדש השמש בקונארק ופורי)", regionGroup: 'in_east', regionGroupNameHe: "מזרח הודו", icon: '🌊' },
+  { id: 'IND-2445', countryId: '356', code: 'IN-DH', nameEn: "Dadra and Nagar Haveli and Daman and Diu", nameHe: "דאדרה ונאגר הבלי ודמאן ודיו", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו" },
+  { id: 'IND-2446', countryId: '356', code: 'IN-KA', nameEn: "Karnataka", nameHe: "קרנאטקה (בנגלורו, המפי ומייסור)", regionGroup: 'in_south', regionGroupNameHe: "דרום הודו", icon: '💻' },
+  { id: 'IND-3265', countryId: '356', code: 'IN-GA', nameEn: "Goa", nameHe: "גואה (חופים, מסיבות וארכיטקטורה פורטוגזית)", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו", icon: '🏖️' },
+  { id: 'IND-2474', countryId: '356', code: 'IN-AN', nameEn: "Andaman and Nicobar", nameHe: "איי אנדמן וניקובר (חופי הבלוק וצלילה)", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)", icon: '🤿' },
+  { id: 'IND-2477', countryId: '356', code: 'IN-AS', nameEn: "Assam", nameHe: "אסאם (מטעי תה וקרנפי פארק קזירנגה)", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)", icon: '🦏' },
+  { id: 'IND-2478', countryId: '356', code: 'IN-MN', nameEn: "Manipur", nameHe: "מניפור (אגם לוקטאק)", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)" },
+  { id: 'IND-2479', countryId: '356', code: 'IN-NL', nameEn: "Nagaland", nameHe: "נאגאלנד (פסטיבל הורנביל)", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)", icon: '🪶' },
+  { id: 'IND-2489', countryId: '356', code: 'IN-ML', nameEn: "Meghalaya", nameHe: "מגהלאיה (גשרי השורשים החיים של צ׳ראפונג׳י)", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)", icon: '🌿' },
+  { id: 'IND-3249', countryId: '356', code: 'IN-PB', nameEn: "Punjab", nameHe: "פנג׳אב (אמריטסר ומקדש הזהב)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '✨' },
+  { id: 'IND-3250', countryId: '356', code: 'IN-RJ', nameEn: "Rajasthan", nameHe: "ראג׳סטאן (ג׳איפור, אודאיפור, ג׳ודפור וארמונות)", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו", icon: '🏰' },
+  { id: 'IND-3253', countryId: '356', code: 'IN-UP', nameEn: "Uttar Pradesh", nameHe: "אוטר פרדש (הטאג׳ מהאל באגרה ו-ורנאסי)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '🕌' },
+  { id: 'IND-3254', countryId: '356', code: 'IN-UT', nameEn: "Uttarakhand", nameHe: "אוטראקהאנד (רישיקש, הרידוואר והגנגס)", regionGroup: 'in_north', regionGroupNameHe: "צפון הודו וההימלאיה", icon: '🧘' },
+  { id: 'IND-3256', countryId: '356', code: 'IN-JH', nameEn: "Jharkhand", nameHe: "ג׳הרקאנד (מפלים ויערות)", regionGroup: 'in_east', regionGroupNameHe: "מזרח הודו" },
+  { id: 'IND-3257', countryId: '356', code: 'IN-WB', nameEn: "West Bengal", nameHe: "מערב בנגל (קולקטה ורכס דרג׳ילינג)", regionGroup: 'in_east', regionGroupNameHe: "מזרח הודו", icon: '☕' },
+  { id: 'IND-3258', countryId: '356', code: 'IN-BR', nameEn: "Bihar", nameHe: "ביהאר (בודה גאיה ועץ הבודהה)", regionGroup: 'in_east', regionGroupNameHe: "מזרח הודו", icon: '🪷' },
+  { id: 'IND-3260', countryId: '356', code: 'IN-CT', nameEn: "Chhattisgarh", nameHe: "צ׳האטיסגאר", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו" },
+  { id: 'IND-3261', countryId: '356', code: 'IN-MP', nameEn: "Madhya Pradesh", nameHe: "מאדיה פרדש (מקדשי קהג׳וראהו ושמורות טיגריסים)", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו", icon: '🐅' },
+  { id: 'IND-3262', countryId: '356', code: 'IN-PY', nameEn: "Puducherry", nameHe: "פודוצ׳רי (פונדיצ׳רי הצרפתית ואורוויל)", regionGroup: 'in_south', regionGroupNameHe: "דרום הודו", icon: '🥐' },
+  { id: 'IND-3263', countryId: '356', code: 'IN-TN', nameEn: "Tamil Nadu", nameHe: "טמיל נאדו (צ׳נאי, מדוראי ומקדשים דראווידיים)", regionGroup: 'in_south', regionGroupNameHe: "דרום הודו", icon: '🛕' },
+  { id: 'IND-3264', countryId: '356', code: 'IN-GJ', nameEn: "Gujarat", nameHe: "גוג׳ראט (אחמדאבאד ואריות אסייתיים)", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו", icon: '🦁' },
+  { id: 'IND-3299', countryId: '356', code: 'IN-AR', nameEn: "Arunachal Pradesh", nameHe: "ארונאצ׳ל פרדש (מנזר טוואנג)", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)", icon: '🏔️' },
+  { id: 'IND-3300', countryId: '356', code: 'IN-MZ', nameEn: "Mizoram", nameHe: "מיזורם", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)" },
+  { id: 'IND-3301', countryId: '356', code: 'IN-TR', nameEn: "Tripura", nameHe: "טריפורה", regionGroup: 'in_northeast', regionGroupNameHe: "צפון-מזרח הודו (שבע האחיות)" },
+  { id: 'IND-2447', countryId: '356', code: 'IN-MH', nameEn: "Maharashtra", nameHe: "מהראשטרה (מומבאי, בוליווד ומערות אלורה)", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו", icon: '🎬' }
+];
+
 export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...US_STATES,
   ...CA_PROVINCES,
   ...AU_STATES,
-  ...EG_SUBDIVISIONS
+  ...EG_SUBDIVISIONS,
+  ...CN_SUBDIVISIONS,
+  ...RU_SUBDIVISIONS,
+  ...BR_SUBDIVISIONS,
+  ...IN_SUBDIVISIONS
 ];
 
 export const REGION_GROUPS: RegionGroup[] = [
@@ -303,9 +499,9 @@ export const REGION_GROUPS: RegionGroup[] = [
     id: 'au_act',
     countryId: '036',
     nameEn: 'Australian Capital Territory',
-    nameHe: 'טריטוריית הבירה (קנברה)',
+    nameHe: 'טריטוריית הבירה (קנברה ומפרץ ג׳רוויס)',
     icon: '🏛️',
-    subdivisionIds: ['AUS-2653']
+    subdivisionIds: ['AUS-2653', 'AUS-1932']
   },
 
   // Egypt Regions
@@ -324,11 +520,202 @@ export const REGION_GROUPS: RegionGroup[] = [
     nameHe: 'שאר מצרים (קהיר, הפירמידות, לוקסור, אלכסנדריה, אסואן)',
     icon: '🏛️',
     subdivisionIds: ['EG-MAIN']
+  },
+
+  // China Regions
+  {
+    id: 'cn_northwest',
+    countryId: '156',
+    nameEn: "Northwest & Silk Road",
+    nameHe: "צפון-מערב ודרך המשי (שאאנשי / שיאן, גאנסו, שינג׳יאנג)",
+    icon: '🐪',
+    subdivisionIds: ["CHN-1150","CHN-1151","CHN-1756","CHN-1803","CHN-1804"]
+  },
+  {
+    id: 'cn_south',
+    countryId: '156',
+    nameEn: "South & Central China",
+    nameHe: "דרום ומרכז סין (גואנגדונג, גואנגשי, האינאן, חוביי, חונאן ועוד)",
+    icon: '🌴',
+    subdivisionIds: ["CHN-1152","CHN-1180","CHN-1775","CHN-1807","CHN-1808","CHN-1812"]
+  },
+  {
+    id: 'cn_southwest',
+    countryId: '156',
+    nameEn: "Southwest China",
+    nameHe: "דרום-מערב סין (סצ׳ואן / פנדות, יונאן, טיבט וצ׳ונגצ׳ינג)",
+    icon: '🐼',
+    subdivisionIds: ["CHN-1153","CHN-1154","CHN-1662","CHN-1809","CHN-1810"]
+  },
+  {
+    id: 'cn_north',
+    countryId: '156',
+    nameEn: "North China",
+    nameHe: "צפון סין (בייג׳ינג, טיאנג׳ין, מונגוליה הפנימית ועוד)",
+    icon: '🏛️',
+    subdivisionIds: ["CHN-1155","CHN-1805","CHN-1811","CHN-1816","CHN-1838"]
+  },
+  {
+    id: 'cn_east',
+    countryId: '156',
+    nameEn: "East China",
+    nameHe: "מזרח סין (שנגחאי, ג׳יאנגסו, ג׳ג׳יאנג, פוג׳יין ועוד)",
+    icon: '🏙️',
+    subdivisionIds: ["CHN-1178","CHN-1179","CHN-1814","CHN-1817","CHN-1818","CHN-1819","CHN-1820"]
+  },
+  {
+    id: 'cn_northeast',
+    countryId: '156',
+    nameEn: "Northeast China (Manchuria)",
+    nameHe: "צפון-מזרח סין / מנצ׳וריה (חרבין, ג׳ילין, ליאונינג)",
+    icon: '❄️',
+    subdivisionIds: ["CHN-1813","CHN-1828","CHN-1839"]
+  },
+
+  // Russia Regions
+  {
+    id: 'ru_siberia',
+    countryId: '643',
+    nameEn: "Siberian Federal District",
+    nameHe: "סיביר ואגם באיקל (נובוסיבירסק, אירקוטסק, קרסנויארסק, אלטאי)",
+    icon: '🐻',
+    subdivisionIds: ["RUS-2167","RUS-2397","RUS-2399","RUS-2400","RUS-2401","RUS-2402","RUS-2403","RUS-2602","RUS-2603","RUS-2605"]
+  },
+  {
+    id: 'ru_south',
+    countryId: '643',
+    nameEn: "Southern & Caucasus Federal District",
+    nameHe: "דרום רוסיה, סוצ׳י והקווקז (סוצ׳י, קרים, דגסטן, צ׳צ׳ניה, אלברוס)",
+    icon: '🌴',
+    subdivisionIds: ["RUS-2279","RUS-2280","RUS-2303","RUS-2304","RUS-2305","RUS-2306","RUS-2367","RUS-2369","RUS-2371","RUS-2388","RUS-2390","RUS-2416","RUS-2417","RUS-283","RUS-5482"]
+  },
+  {
+    id: 'ru_fareast',
+    countryId: '643',
+    nameEn: "Far Eastern Federal District",
+    nameHe: "המזרח הרחוק וקמצ׳טקה (ולדיווסטוק, קמצ׳טקה, יקוטיה, צ׳וקוטקה, בירוביג׳אן)",
+    icon: '🌋',
+    subdivisionIds: ["RUS-2321","RUS-2606","RUS-2609","RUS-2610","RUS-2611","RUS-2612","RUS-2613","RUS-2614","RUS-2615","RUS-2616","RUS-3468"]
+  },
+  {
+    id: 'ru_northwest',
+    countryId: '643',
+    nameEn: "Northwestern Federal District",
+    nameHe: "צפון-מערב וסנקט פטרבורג (פטרבורג, קלינינגרד, מורמנסק, קרליה)",
+    icon: '🏰',
+    subdivisionIds: ["RUS-2324","RUS-2333","RUS-2334","RUS-2335","RUS-2336","RUS-2337","RUS-2353","RUS-2354","RUS-2359","RUS-2381","RUS-2383"]
+  },
+  {
+    id: 'ru_central',
+    countryId: '643',
+    nameEn: "Central Federal District",
+    nameHe: "מחוז מוסקבה והמרכז (מוסקבה, ולדימיר, ירוסלבל ועוד)",
+    icon: '🏛️',
+    subdivisionIds: ["RUS-2342","RUS-2343","RUS-2355","RUS-2356","RUS-2358","RUS-2360","RUS-2361","RUS-2362","RUS-2363","RUS-2364","RUS-2365","RUS-2366","RUS-2368","RUS-2370","RUS-2374","RUS-2375","RUS-2376","RUS-2377"]
+  },
+  {
+    id: 'ru_volga',
+    countryId: '643',
+    nameEn: "Volga Federal District",
+    nameHe: "אגן נהר הוולגה (טטרסטן / קאזאן, ניז׳ני נובגורוד, סמארה, בשקורטוסטן)",
+    icon: '🕌',
+    subdivisionIds: ["RUS-2357","RUS-2372","RUS-2373","RUS-2378","RUS-2384","RUS-2385","RUS-2387","RUS-2389","RUS-2392","RUS-2391","RUS-2393","RUS-2394","RUS-2395","RUS-3200"]
+  },
+  {
+    id: 'ru_ural',
+    countryId: '643',
+    nameEn: "Ural Federal District",
+    nameHe: "הרי האורל (יקטרינבורג, צ׳ליאבינסק, ימאל-ננץ)",
+    icon: '💎',
+    subdivisionIds: ["RUS-2379","RUS-2380","RUS-2382","RUS-2386","RUS-2396","RUS-2398"]
+  },
+
+  // Brazil Regions
+  {
+    id: 'br_north',
+    countryId: '076',
+    nameEn: "North Region (Amazon)",
+    nameHe: "צפון ברזיל ויערות האמזונס (אמזונאס / מנאוס, פארה, רוריימה, טוקנטינס)",
+    icon: '🌳',
+    subdivisionIds: ["BRA-576","BRA-595","BRA-670","BRA-592","BRA-594","BRA-681","BRA-596"]
+  },
+  {
+    id: 'br_central',
+    countryId: '076',
+    nameEn: "Central-West Region",
+    nameHe: "מרכז-מערב ברזיל (ברזיליה עיר הבירה, גויאס, הפנטנל)",
+    icon: '🏛️',
+    subdivisionIds: ["BRA-600","BRA-602","BRA-599","BRA-1294"]
+  },
+  {
+    id: 'br_south',
+    countryId: '076',
+    nameEn: "South Region",
+    nameHe: "דרום ברזיל (פרנה ומפלי איגואסו, סנטה קטרינה, ריו גראנדה דו סול)",
+    icon: '💦',
+    subdivisionIds: ["BRA-613","BRA-614","BRA-612"]
+  },
+  {
+    id: 'br_southeast',
+    countryId: '076',
+    nameEn: "Southeast Region",
+    nameHe: "דרום-מזרח ברזיל (סאו פאולו, ריו דה ז׳ניירו, מינאס ז׳ראיס)",
+    icon: '🏖️',
+    subdivisionIds: ["BRA-1311","BRA-627","BRA-601","BRA-625"]
+  },
+  {
+    id: 'br_northeast',
+    countryId: '076',
+    nameEn: "Northeast Region",
+    nameHe: "צפון-מזרח ברזיל (באהיה / סלבדור, פרנמבוקו, סיארה, מרניאו)",
+    icon: '🥁',
+    subdivisionIds: ["BRA-593","BRA-622","BRA-624","BRA-621","BRA-629","BRA-623","BRA-628","BRA-1313","BRA-626"]
+  },
+
+  // India Regions
+  {
+    id: 'in_northeast',
+    countryId: '356',
+    nameEn: "Northeast India (Seven Sisters)",
+    nameHe: "צפון-מזרח הודו ושבע האחיות (אסאם, סיקים, מגהלאיה, איי אנדמן וניקובר)",
+    icon: '🦏',
+    subdivisionIds: ["IND-3259","IND-2474","IND-2477","IND-2478","IND-2479","IND-2489","IND-3299","IND-3300","IND-3301"]
+  },
+  {
+    id: 'in_south',
+    countryId: '356',
+    nameEn: "South India",
+    nameHe: "דרום הודו (קרנאטקה / בנגלורו, קראלה, טמיל נאדו, טלנגאנה / היידראבאד)",
+    icon: '🌴',
+    subdivisionIds: ["IND-20011","IND-2441","IND-2442","IND-2443","IND-2446","IND-3262","IND-3263"]
+  },
+  {
+    id: 'in_north',
+    countryId: '356',
+    nameEn: "North India & Himalayas",
+    nameHe: "צפון הודו וההימלאיה (דלהי, קשמיר, לדאק, הימאצ׳ל, רישיקש, פנג׳אב, טאג׳ מהאל)",
+    icon: '🏔️',
+    subdivisionIds: ["IND-20012","IND-2427","IND-2428","IND-2429","IND-2430","IND-2431","IND-3249","IND-3253","IND-3254"]
+  },
+  {
+    id: 'in_east',
+    countryId: '356',
+    nameEn: "East India",
+    nameHe: "מזרח הודו (מערב בנגל / קולקטה, ביהאר, אודישה, ג׳הרקאנד)",
+    icon: '☕',
+    subdivisionIds: ["IND-2444","IND-3256","IND-3257","IND-3258"]
+  },
+  {
+    id: 'in_west',
+    countryId: '356',
+    nameEn: "West & Central India",
+    nameHe: "מערב ומרכז הודו (מומבאי / מהראשטרה, גואה, ראג׳סטאן, גוג׳ראט, מאדיה פרדש)",
+    icon: '🏰',
+    subdivisionIds: ["IND-2445","IND-3265","IND-3250","IND-3260","IND-3261","IND-3264","IND-2447"]
   }
 ];
 
-// Highlight Color Palettes with vibrant standout colors!
-export const HIGHLIGHT_THEMES = [
+export const HIGHLIGHT_THEMES: HighlightColorTheme[] = [
   {
     id: 'neon-cyan',
     nameHe: 'טורקיז זוהר (ברירת מחדל)',
@@ -371,7 +758,6 @@ export const HIGHLIGHT_THEMES = [
   }
 ];
 
-// Ocean Background Color Themes (5 colors: Bright Sea Green, Warm Yellow, Classic Navy, Pearl Gray, Pure White)
 export const OCEAN_THEMES: OceanColorTheme[] = [
   {
     id: 'ocean-teal',
@@ -454,4 +840,3 @@ export function getOceanTheme(hexOrId?: string): OceanColorTheme {
   }
   return OCEAN_THEMES[2];
 }
-
