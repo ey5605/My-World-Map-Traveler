@@ -310,6 +310,49 @@ export const IN_SUBDIVISIONS: Subdivision[] = [
   { id: 'IND-2447', countryId: '356', code: 'IN-MH', nameEn: "Maharashtra", nameHe: "מהראשטרה (מומבאי, בוליווד ומערות אלורה)", regionGroup: 'in_west', regionGroupNameHe: "מערב ומרכז הודו", icon: '🎬' }
 ];
 
+export const UK_SUBDIVISIONS: Subdivision[] = [
+  {
+    id: 'GBR-ENG',
+    countryId: '826',
+    code: 'ENG',
+    nameEn: 'England',
+    nameHe: 'אנגליה (לונדון, מנצ׳סטר, ליברפול, אוקספורד, ברמינגהאם)',
+    regionGroup: 'uk_england',
+    regionGroupNameHe: 'אנגליה',
+    icon: '💂‍♂️'
+  },
+  {
+    id: 'GBR-SCT',
+    countryId: '826',
+    code: 'SCT',
+    nameEn: 'Scotland',
+    nameHe: 'סקוטלנד (אדינבורו, גלאזגו, ההיילנדס, לוך נס, האי סקאי)',
+    regionGroup: 'uk_scotland',
+    regionGroupNameHe: 'סקוטלנד',
+    icon: '🏔️'
+  },
+  {
+    id: 'GBR-WLS',
+    countryId: '826',
+    code: 'WLS',
+    nameEn: 'Wales',
+    nameHe: 'ויילס (קארדיף, סוונסי, שמורת הטבע סנודוניה)',
+    regionGroup: 'uk_wales',
+    regionGroupNameHe: 'ויילס',
+    icon: '🐉'
+  },
+  {
+    id: 'GBR-NIR',
+    countryId: '826',
+    code: 'NIR',
+    nameEn: 'Northern Ireland',
+    nameHe: 'צפון אירלנד (בלפסט, סוללת הענק, דרי)',
+    regionGroup: 'uk_northern_ireland',
+    regionGroupNameHe: 'צפון אירלנד',
+    icon: '☘️'
+  }
+];
+
 export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...US_STATES,
   ...CA_PROVINCES,
@@ -318,7 +361,8 @@ export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...CN_SUBDIVISIONS,
   ...RU_SUBDIVISIONS,
   ...BR_SUBDIVISIONS,
-  ...IN_SUBDIVISIONS
+  ...IN_SUBDIVISIONS,
+  ...UK_SUBDIVISIONS
 ];
 
 export const REGION_GROUPS: RegionGroup[] = [
@@ -712,6 +756,40 @@ export const REGION_GROUPS: RegionGroup[] = [
     nameHe: "מערב ומרכז הודו (מומבאי / מהראשטרה, גואה, ראג׳סטאן, גוג׳ראט, מאדיה פרדש)",
     icon: '🏰',
     subdivisionIds: ["IND-2445","IND-3265","IND-3250","IND-3260","IND-3261","IND-3264","IND-2447"]
+  },
+
+  // United Kingdom Constituent Nations & Regions
+  {
+    id: 'uk_england',
+    countryId: '826',
+    nameEn: 'England',
+    nameHe: 'אנגליה (לונדון, מנצ׳סטר, אוקספורד)',
+    icon: '💂‍♂️',
+    subdivisionIds: ['GBR-ENG']
+  },
+  {
+    id: 'uk_scotland',
+    countryId: '826',
+    nameEn: 'Scotland',
+    nameHe: 'סקוטלנד (אדינבורו, גלאזגו, ההיילנדס)',
+    icon: '🏔️',
+    subdivisionIds: ['GBR-SCT']
+  },
+  {
+    id: 'uk_wales',
+    countryId: '826',
+    nameEn: 'Wales',
+    nameHe: 'ויילס (קארדיף, שמורת סנודוניה)',
+    icon: '🐉',
+    subdivisionIds: ['GBR-WLS']
+  },
+  {
+    id: 'uk_northern_ireland',
+    countryId: '826',
+    nameEn: 'Northern Ireland',
+    nameHe: 'צפון אירלנד (בלפסט, סוללת הענק)',
+    icon: '☘️',
+    subdivisionIds: ['GBR-NIR']
   }
 ];
 

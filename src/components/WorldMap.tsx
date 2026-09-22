@@ -385,7 +385,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               }
 
               // Skip countries that are rendered via states/provinces/regions
-              // USA (840), Canada (124), Australia (036), Egypt (818), Russia (643), China (156), Brazil (076), India (356)
+              // USA (840), Canada (124), Australia (036), Egypt (818), Russia (643), China (156), Brazil (076), India (356), United Kingdom (826)
               if (
                 countryId === '840' ||
                 countryId === '124' ||
@@ -394,7 +394,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 countryId === '643' ||
                 countryId === '156' ||
                 countryId === '076' ||
-                countryId === '356'
+                countryId === '356' ||
+                countryId === '826'
               ) {
                 return null;
               }
@@ -493,7 +494,8 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 China: { id: '156', flag: '🇨🇳', nameHe: 'סין', nameEn: 'China' },
                 Russia: { id: '643', flag: '🇷🇺', nameHe: 'רוסיה', nameEn: 'Russia' },
                 Brazil: { id: '076', flag: '🇧🇷', nameHe: 'ברזיל', nameEn: 'Brazil' },
-                India: { id: '356', flag: '🇮🇳', nameHe: 'הודו', nameEn: 'India' }
+                India: { id: '356', flag: '🇮🇳', nameHe: 'הודו', nameEn: 'India' },
+                'United Kingdom': { id: '826', flag: '🇬🇧', nameHe: 'הממלכה המאוחדת', nameEn: 'United Kingdom' }
               }[country as string];
 
               if (!meta) return null;

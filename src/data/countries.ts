@@ -330,7 +330,7 @@ export const COUNTRIES: Country[] = [
     "code3": "GBR",
     "continent": "אירופה",
     "flag": "🇬🇧",
-    "hasSubdivisions": false
+    "hasSubdivisions": true
   },
   {
     "id": "784",

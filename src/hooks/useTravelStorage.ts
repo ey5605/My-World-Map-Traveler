@@ -23,7 +23,7 @@ export function useTravelStorage() {
         let countryIds: string[] = Array.isArray(parsed.visitedCountryIds) ? parsed.visitedCountryIds : [];
 
         // Ensure countries with subdivisions are only in countryIds if they actually have visited subdivisions
-        const countriesWithSubs = ['840', '124', '036', '818', '643', '156', '076', '356'];
+        const countriesWithSubs = ['840', '124', '036', '818', '643', '156', '076', '356', '826'];
         for (const cid of countriesWithSubs) {
           const subs = ALL_SUBDIVISIONS.filter(s => s.countryId === cid);
           const hasVisitedSub = subs.some(s => subIds.includes(s.id));
