@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: process.env.GITHUB_ACTIONS ? '/My-World-Map-Traveler/' : './',
+    base: process.env.GITHUB_ACTIONS ? '/My-World-Map-Traveler/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

@@ -353,6 +353,351 @@ export const UK_SUBDIVISIONS: Subdivision[] = [
   }
 ];
 
+export const FR_REGIONS: Subdivision[] = [
+  {
+    id: 'FRA-11',
+    countryId: '250',
+    code: 'FR-11',
+    nameEn: 'Île-de-France',
+    nameHe: 'איל-דה-פראנס (פריז, ורסאי, מגדל אייפל, דיסנילנד)',
+    regionGroup: 'fr_paris',
+    regionGroupNameHe: 'איל-דה-פראנס ופריז',
+    icon: '🗼'
+  },
+  {
+    id: 'FRA-84',
+    countryId: '250',
+    code: 'FR-84',
+    nameEn: 'Auvergne-Rhône-Alpes',
+    nameHe: 'אוברן-רון-אלפ (ליון, שאמוני ומון בלאן, האלפים הצרפתיים, אנסי)',
+    regionGroup: 'fr_alps_east',
+    regionGroupNameHe: 'האלפים ומזרח צרפת',
+    icon: '🏔️'
+  },
+  {
+    id: 'FRA-93',
+    countryId: '250',
+    code: 'FR-93',
+    nameEn: "Provence-Alpes-Côte d'Azur",
+    nameHe: "פרובנס-אלפ-קוט ד'אזור (הריביירה הצרפתית, ניס, קאן, מרסיי, סן טרופה)",
+    regionGroup: 'fr_south_med',
+    regionGroupNameHe: 'דרום צרפת והים התיכון',
+    icon: '🏖️'
+  },
+  {
+    id: 'FRA-76',
+    countryId: '250',
+    code: 'FR-76',
+    nameEn: 'Occitanie',
+    nameHe: 'אוקסיטניה (טולוז, מונפלייה, מבצר קרקסון, הפירנאים)',
+    regionGroup: 'fr_south_med',
+    regionGroupNameHe: 'דרום צרפת והים התיכון',
+    icon: '🏰'
+  },
+  {
+    id: 'FRA-75',
+    countryId: '250',
+    code: 'FR-75',
+    nameEn: 'Nouvelle-Aquitaine',
+    nameHe: 'נובל-אקיטן (בורדו וכרמי היין, ביאריץ, עמק הדורדון)',
+    regionGroup: 'fr_west_atlantic',
+    regionGroupNameHe: 'מערב צרפת והאוקיינוס האטלנטי',
+    icon: '🍷'
+  },
+  {
+    id: 'FRA-53',
+    countryId: '250',
+    code: 'FR-53',
+    nameEn: 'Brittany',
+    nameHe: 'ברטאן (רן, סן-מלו, ברסט, צוקי האוקיינוס)',
+    regionGroup: 'fr_west_atlantic',
+    regionGroupNameHe: 'מערב צרפת והאוקיינוס האטלנטי',
+    icon: '⛵'
+  },
+  {
+    id: 'FRA-28',
+    countryId: '250',
+    code: 'FR-28',
+    nameEn: 'Normandy',
+    nameHe: 'נורמנדי (מון סן-מישל, רואן, חופי הנחיתה של יום ה-D)',
+    regionGroup: 'fr_west_atlantic',
+    regionGroupNameHe: 'מערב צרפת והאוקיינוס האטלנטי',
+    icon: '🌊'
+  },
+  {
+    id: 'FRA-44',
+    countryId: '250',
+    code: 'FR-44',
+    nameEn: 'Grand Est',
+    nameHe: 'גראנד אסט (שטרסבורג, דרך היין של אלזס, חבל שמפניה, קולמר)',
+    regionGroup: 'fr_alps_east',
+    regionGroupNameHe: 'האלפים ומזרח צרפת',
+    icon: '🍾'
+  },
+  {
+    id: 'FRA-32',
+    countryId: '250',
+    code: 'FR-32',
+    nameEn: 'Hauts-de-France',
+    nameHe: 'או-דה-פראנס (ליל, קאלה, אמיין)',
+    regionGroup: 'fr_loire_valley',
+    regionGroupNameHe: 'עמק הלואר ומרכז צרפת',
+    icon: '🏛️'
+  },
+  {
+    id: 'FRA-52',
+    countryId: '250',
+    code: 'FR-52',
+    nameEn: 'Pays de la Loire',
+    nameHe: 'פיי דה לה לואר (נאנט, עמק הלואר, אנז׳ה)',
+    regionGroup: 'fr_loire_valley',
+    regionGroupNameHe: 'עמק הלואר ומרכז צרפת',
+    icon: '🏰'
+  },
+  {
+    id: 'FRA-24',
+    countryId: '250',
+    code: 'FR-24',
+    nameEn: 'Centre-Val de Loire',
+    nameHe: 'סנטר-עמק הלואר (טירות שמבור, שנונסו, אורליאן)',
+    regionGroup: 'fr_loire_valley',
+    regionGroupNameHe: 'עמק הלואר ומרכז צרפת',
+    icon: '👑'
+  },
+  {
+    id: 'FRA-27',
+    countryId: '250',
+    code: 'FR-27',
+    nameEn: 'Bourgogne-Franche-Comté',
+    nameHe: 'בורגון-פראנש-קונטה (דיז׳ון, יקבי בורגונדי, בזאנסון)',
+    regionGroup: 'fr_loire_valley',
+    regionGroupNameHe: 'עמק הלואר ומרכז צרפת',
+    icon: '🍇'
+  },
+  {
+    id: 'FRA-94',
+    countryId: '250',
+    code: 'FR-94',
+    nameEn: 'Corsica',
+    nameHe: 'קורסיקה (אז׳אקסיו, בסטיה, מפרצי הטורקיז)',
+    regionGroup: 'fr_south_med',
+    regionGroupNameHe: 'דרום צרפת והים התיכון',
+    icon: '🏝️'
+  }
+];
+
+export const IT_REGIONS: Subdivision[] = [
+  // North-West
+  {
+    id: 'IT-25',
+    countryId: '380',
+    code: 'IT-25',
+    nameEn: 'Lombardy',
+    nameHe: 'לומברדיה (מילאנו, אגם קומו, אגם גארדה, ברגמו)',
+    regionGroup: 'it_north_west',
+    regionGroupNameHe: 'צפון-מערב איטליה',
+    icon: '🏙️'
+  },
+  {
+    id: 'IT-21',
+    countryId: '380',
+    code: 'IT-21',
+    nameEn: 'Piedmont',
+    nameHe: 'פיימונטה (טורינו, כרמי ברולו, לאנגה, האלפים)',
+    regionGroup: 'it_north_west',
+    regionGroupNameHe: 'צפון-מערב איטליה',
+    icon: '🏔️'
+  },
+  {
+    id: 'IT-42',
+    countryId: '380',
+    code: 'IT-42',
+    nameEn: 'Liguria',
+    nameHe: 'ליגוריה (ג׳נובה, צ׳ינקווה טרה, פורטופינו, הריביירה)',
+    regionGroup: 'it_north_west',
+    regionGroupNameHe: 'צפון-מערב איטליה',
+    icon: '⛵'
+  },
+  {
+    id: 'IT-23',
+    countryId: '380',
+    code: 'IT-23',
+    nameEn: 'Aosta Valley',
+    nameHe: 'ואל ד׳אוסטה (עמק אאוסטה, מון בלאן ומטרהורן, קורמאיור)',
+    regionGroup: 'it_north_west',
+    regionGroupNameHe: 'צפון-מערב איטליה',
+    icon: '⛷️'
+  },
+
+  // North-East
+  {
+    id: 'IT-34',
+    countryId: '380',
+    code: 'IT-34',
+    nameEn: 'Veneto',
+    nameHe: 'ונטו (ונציה, ורונה, פדובה, הרי הדולומיטים)',
+    regionGroup: 'it_north_east',
+    regionGroupNameHe: 'צפון-מזרח איטליה והדולומיטים',
+    icon: '🎭'
+  },
+  {
+    id: 'IT-32',
+    countryId: '380',
+    code: 'IT-32',
+    nameEn: 'Trentino-South Tyrol',
+    nameHe: 'טרנטינו - אלטו אדיג׳ה (הרי הדולומיטים, בולצאנו, אגם קארצה, טרנטו)',
+    regionGroup: 'it_north_east',
+    regionGroupNameHe: 'צפון-מזרח איטליה והדולומיטים',
+    icon: '🏔️'
+  },
+  {
+    id: 'IT-45',
+    countryId: '380',
+    code: 'IT-45',
+    nameEn: 'Emilia-Romagna',
+    nameHe: 'אמיליה-רומאניה (בולוניה, מודנה, פארמה, חופי רימיני)',
+    regionGroup: 'it_north_east',
+    regionGroupNameHe: 'צפון-מזרח איטליה והדולומיטים',
+    icon: '🍝'
+  },
+  {
+    id: 'IT-36',
+    countryId: '380',
+    code: 'IT-36',
+    nameEn: 'Friuli-Venezia Giulia',
+    nameHe: 'פריולי-ונציה ג׳וליה (טריאסטה, אודינה, הרי האלפים היוליים)',
+    regionGroup: 'it_north_east',
+    regionGroupNameHe: 'צפון-מזרח איטליה והדולומיטים',
+    icon: '🏰'
+  },
+
+  // Central
+  {
+    id: 'IT-62',
+    countryId: '380',
+    code: 'IT-62',
+    nameEn: 'Lazio',
+    nameHe: 'לאציו (רומא, הוותיקן, הקולוסיאום, טיבולי)',
+    regionGroup: 'it_central',
+    regionGroupNameHe: 'מרכז איטליה',
+    icon: '🏛️'
+  },
+  {
+    id: 'IT-52',
+    countryId: '380',
+    code: 'IT-52',
+    nameEn: 'Tuscany',
+    nameHe: 'טוסקנה (פירנצה, סיינה, פיזה, כרמי קיאנטי, סן ג׳ימיניאנו)',
+    regionGroup: 'it_central',
+    regionGroupNameHe: 'מרכז איטליה',
+    icon: '🍷'
+  },
+  {
+    id: 'IT-55',
+    countryId: '380',
+    code: 'IT-55',
+    nameEn: 'Umbria',
+    nameHe: 'אומבריה (הלב הירוק של איטליה, פרוג׳ה, אסיזי, אורבייטו)',
+    regionGroup: 'it_central',
+    regionGroupNameHe: 'מרכז איטליה',
+    icon: '🌳'
+  },
+  {
+    id: 'IT-57',
+    countryId: '380',
+    code: 'IT-57',
+    nameEn: 'Marche',
+    nameHe: 'מארקה (אנקונה, אורבינו, חופי ריביירה דל קונרו)',
+    regionGroup: 'it_central',
+    regionGroupNameHe: 'מרכז איטליה',
+    icon: '🎨'
+  },
+  {
+    id: 'IT-65',
+    countryId: '380',
+    code: 'IT-65',
+    nameEn: 'Abruzzo',
+    nameHe: 'אברוצו (הפארק הלאומי גראן סאסו, ל׳אקווילה, הרי האפנינים)',
+    regionGroup: 'it_central',
+    regionGroupNameHe: 'מרכז איטליה',
+    icon: '🐻'
+  },
+
+  // South
+  {
+    id: 'IT-72',
+    countryId: '380',
+    code: 'IT-72',
+    nameEn: 'Campania',
+    nameHe: 'קמפניה (נאפולי, חוף אמאלפי, האי קאפרי, סורנטו, פומפיי)',
+    regionGroup: 'it_south',
+    regionGroupNameHe: 'דרום איטליה וחוף אמאלפי',
+    icon: '🍋'
+  },
+  {
+    id: 'IT-75',
+    countryId: '380',
+    code: 'IT-75',
+    nameEn: 'Apulia (Puglia)',
+    nameHe: 'פוליה (בארי, בתי הטרולי באלברובלו, לצ׳ה, חצי האי סלנטו)',
+    regionGroup: 'it_south',
+    regionGroupNameHe: 'דרום איטליה וחוף אמאלפי',
+    icon: '🫒'
+  },
+  {
+    id: 'IT-78',
+    countryId: '380',
+    code: 'IT-78',
+    nameEn: 'Calabria',
+    nameHe: 'קלבריה (טרופאה, רג׳ו קלבריה, שפיץ המגף)',
+    regionGroup: 'it_south',
+    regionGroupNameHe: 'דרום איטליה וחוף אמאלפי',
+    icon: '🌶️'
+  },
+  {
+    id: 'IT-77',
+    countryId: '380',
+    code: 'IT-77',
+    nameEn: 'Basilicata',
+    nameHe: 'בזיליקטה (עיר המערות מָטֶרָה, פוטנצה, מאראטאה)',
+    regionGroup: 'it_south',
+    regionGroupNameHe: 'דרום איטליה וחוף אמאלפי',
+    icon: '🪨'
+  },
+  {
+    id: 'IT-67',
+    countryId: '380',
+    code: 'IT-67',
+    nameEn: 'Molise',
+    nameHe: 'מוליזה (קמפובאסו, חופי תרמולי, רכס מאטסה)',
+    regionGroup: 'it_south',
+    regionGroupNameHe: 'דרום איטליה וחוף אמאלפי',
+    icon: '🌾'
+  },
+
+  // Islands
+  {
+    id: 'IT-82',
+    countryId: '380',
+    code: 'IT-82',
+    nameEn: 'Sicily',
+    nameHe: 'סיציליה (פלרמו, קטניה, טאורמינה, הר אתנה, סירקוזה)',
+    regionGroup: 'it_islands',
+    regionGroupNameHe: 'איי איטליה (סיציליה וסרדיניה)',
+    icon: '🌋'
+  },
+  {
+    id: 'IT-88',
+    countryId: '380',
+    code: 'IT-88',
+    nameEn: 'Sardinia',
+    nameHe: 'סרדיניה (קליארי, קוסטה סמרלדה, חופי קאלא גונורה)',
+    regionGroup: 'it_islands',
+    regionGroupNameHe: 'איי איטליה (סיציליה וסרדיניה)',
+    icon: '🏝️'
+  }
+];
+
 export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...US_STATES,
   ...CA_PROVINCES,
@@ -362,7 +707,9 @@ export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...RU_SUBDIVISIONS,
   ...BR_SUBDIVISIONS,
   ...IN_SUBDIVISIONS,
-  ...UK_SUBDIVISIONS
+  ...UK_SUBDIVISIONS,
+  ...FR_REGIONS,
+  ...IT_REGIONS
 ];
 
 export const REGION_GROUPS: RegionGroup[] = [
@@ -790,6 +1137,90 @@ export const REGION_GROUPS: RegionGroup[] = [
     nameHe: 'צפון אירלנד (בלפסט, סוללת הענק)',
     icon: '☘️',
     subdivisionIds: ['GBR-NIR']
+  },
+
+  // France Regions
+  {
+    id: 'fr_paris',
+    countryId: '250',
+    nameEn: 'Île-de-France & Paris',
+    nameHe: 'איל-דה-פראנס ופריז (מגדל אייפל, ורסאי, דיסנילנד)',
+    icon: '🗼',
+    subdivisionIds: ['FRA-11']
+  },
+  {
+    id: 'fr_south_med',
+    countryId: '250',
+    nameEn: 'French Riviera, Occitanie & Corsica',
+    nameHe: 'דרום צרפת, הריביירה, אוקסיטניה וקורסיקה (ניס, קאן, מרסיי, טולוז, קורסיקה)',
+    icon: '🏖️',
+    subdivisionIds: ['FRA-93', 'FRA-76', 'FRA-94']
+  },
+  {
+    id: 'fr_west_atlantic',
+    countryId: '250',
+    nameEn: 'Atlantic Coast, Brittany & Normandy',
+    nameHe: 'החוף האטלנטי, ברטאן, נורמנדי ובורדו (בורדו, מון סן-מישל, ברטאן)',
+    icon: '🌊',
+    subdivisionIds: ['FRA-75', 'FRA-53', 'FRA-28']
+  },
+  {
+    id: 'fr_alps_east',
+    countryId: '250',
+    nameEn: 'French Alps, Lyon & Alsace',
+    nameHe: 'האלפים הצרפתיים, ליון ואלזס (שאמוני / מון בלאן, ליון, שטרסבורג, שמפניה)',
+    icon: '🏔️',
+    subdivisionIds: ['FRA-84', 'FRA-44']
+  },
+  {
+    id: 'fr_loire_valley',
+    countryId: '250',
+    nameEn: 'Loire Valley, Central France & Burgundy',
+    nameHe: 'עמק הלואר, מרכז צרפת ובורגון (טירות הלואר, שמבור, נאנט, דיז׳ון, ליל)',
+    icon: '🏰',
+    subdivisionIds: ['FRA-52', 'FRA-24', 'FRA-27', 'FRA-32']
+  },
+
+  // Italy Regions
+  {
+    id: 'it_north_west',
+    countryId: '380',
+    nameEn: 'North-West Italy',
+    nameHe: 'צפון-מערב איטליה (מילאנו, אגם קומו, טורינו, צ׳ינקווה טרה, ואל ד׳אוסטה)',
+    icon: '🏙️',
+    subdivisionIds: ['IT-25', 'IT-21', 'IT-42', 'IT-23']
+  },
+  {
+    id: 'it_north_east',
+    countryId: '380',
+    nameEn: 'North-East Italy & Dolomites',
+    nameHe: 'צפון-מזרח איטליה והדולומיטים (ונציה, ורונה, בולוניה, הדולומיטים)',
+    icon: '🎭',
+    subdivisionIds: ['IT-34', 'IT-32', 'IT-45', 'IT-36']
+  },
+  {
+    id: 'it_central',
+    countryId: '380',
+    nameEn: 'Central Italy',
+    nameHe: 'מרכז איטליה (רומא, הוותיקן, פירנצה / טוסקנה, אומבריה, אברוצו)',
+    icon: '🏛️',
+    subdivisionIds: ['IT-62', 'IT-52', 'IT-55', 'IT-57', 'IT-65']
+  },
+  {
+    id: 'it_south',
+    countryId: '380',
+    nameEn: 'South Italy & Amalfi Coast',
+    nameHe: 'דרום איטליה וחוף אמאלפי (נאפולי, אמאלפי, קאפרי, פוליה, קלבריה, מָטֶרָה)',
+    icon: '🍋',
+    subdivisionIds: ['IT-72', 'IT-75', 'IT-78', 'IT-77', 'IT-67']
+  },
+  {
+    id: 'it_islands',
+    countryId: '380',
+    nameEn: 'Italian Islands (Sicily & Sardinia)',
+    nameHe: 'איי איטליה (סיציליה, הר אתנה, פלרמו, סרדיניה וקוסטה סמרלדה)',
+    icon: '🌋',
+    subdivisionIds: ['IT-82', 'IT-88']
   }
 ];
 

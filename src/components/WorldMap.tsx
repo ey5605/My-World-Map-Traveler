@@ -88,52 +88,46 @@ export const WorldMap: React.FC<WorldMapProps> = ({
   // Load geojson data on mount
   useEffect(() => {
     let isMounted = true;
-    const base = import.meta.env.BASE_URL || './';
+    const base = import.meta.env.BASE_URL || '/';
     const cleanBase = base.endsWith('/') ? base : `${base}/`;
 
-    Promise.all([
-      fetch(`${cleanBase}data/world-countries.json`).then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      }),
-      fetch(`${cleanBase}data/us-states.json`).then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      }),
-      fetch(`${cleanBase}data/provinces.json`).then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-    ])
-      .then(([world, us, prov]) => {
-        if (isMounted) {
-          setWorldGeo(world);
-          setUsStatesGeo(us);
-          setProvincesGeo(prov);
-          setIsLoading(false);
-        }
-      })
-      .catch(err => {
-        console.error('Failed to load map data with base URL, attempting fallback:', err);
-        // Fallback to relative path without prefix
-        Promise.all([
-          fetch('./data/world-countries.json').then(r => r.json()),
-          fetch('./data/us-states.json').then(r => r.json()),
-          fetch('./data/provinces.json').then(r => r.json())
-        ])
-          .then(([world, us, prov]) => {
-            if (isMounted) {
-              setWorldGeo(world);
-              setUsStatesGeo(us);
-              setProvincesGeo(prov);
-              setIsLoading(false);
+    const loadJson = async (fileName: string) => {
+      const candidates = [
+        `/data/${fileName}`,
+        `${cleanBase}data/${fileName}`,
+        `./data/${fileName}`,
+        `data/${fileName}`
+      ];
+      const uniqueCandidates = Array.from(new Set(candidates));
+
+      for (const url of uniqueCandidates) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.features) {
+              return data;
             }
-          })
-          .catch(fallbackErr => {
-            console.error('Failed to load map data on fallback:', fallbackErr);
-            if (isMounted) setIsLoading(false);
-          });
-      });
+          }
+        } catch {
+          // silently try next candidate
+        }
+      }
+      return null;
+    };
+
+    Promise.all([
+      loadJson('world-countries.json'),
+      loadJson('us-states.json'),
+      loadJson('provinces.json')
+    ]).then(([world, us, prov]) => {
+      if (isMounted) {
+        if (world) setWorldGeo(world);
+        if (us) setUsStatesGeo(us);
+        if (prov) setProvincesGeo(prov);
+        setIsLoading(false);
+      }
+    });
 
     return () => {
       isMounted = false;
@@ -385,7 +379,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               }
 
               // Skip countries that are rendered via states/provinces/regions
-              // USA (840), Canada (124), Australia (036), Egypt (818), Russia (643), China (156), Brazil (076), India (356), United Kingdom (826)
+              // USA (840), Canada (124), Australia (036), Egypt (818), Russia (643), China (156), Brazil (076), India (356), United Kingdom (826), France (250), Italy (380)
               if (
                 countryId === '840' ||
                 countryId === '124' ||
@@ -395,7 +389,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 countryId === '156' ||
                 countryId === '076' ||
                 countryId === '356' ||
-                countryId === '826'
+                countryId === '826' ||
+                countryId === '250' ||
+                countryId === '380'
               ) {
                 return null;
               }
@@ -495,7 +491,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 Russia: { id: '643', flag: '🇷🇺', nameHe: 'רוסיה', nameEn: 'Russia' },
                 Brazil: { id: '076', flag: '🇧🇷', nameHe: 'ברזיל', nameEn: 'Brazil' },
                 India: { id: '356', flag: '🇮🇳', nameHe: 'הודו', nameEn: 'India' },
-                'United Kingdom': { id: '826', flag: '🇬🇧', nameHe: 'הממלכה המאוחדת', nameEn: 'United Kingdom' }
+                'United Kingdom': { id: '826', flag: '🇬🇧', nameHe: 'הממלכה המאוחדת', nameEn: 'United Kingdom' },
+                France: { id: '250', flag: '🇫🇷', nameHe: 'צרפת', nameEn: 'France' },
+                Italy: { id: '380', flag: '🇮🇹', nameHe: 'איטליה', nameEn: 'Italy' }
               }[country as string];
 
               if (!meta) return null;
