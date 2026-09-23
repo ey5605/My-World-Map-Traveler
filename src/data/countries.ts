@@ -560,7 +560,7 @@ export const COUNTRIES: Country[] = [
     "code3": "ESP",
     "continent": "אירופה",
     "flag": "🇪🇸",
-    "hasSubdivisions": false
+    "hasSubdivisions": true
   },
   {
     "id": "410",
@@ -800,7 +800,7 @@ export const COUNTRIES: Country[] = [
     "code3": "PRT",
     "continent": "אירופה",
     "flag": "🇵🇹",
-    "hasSubdivisions": false
+    "hasSubdivisions": true
   },
   {
     "id": "616",

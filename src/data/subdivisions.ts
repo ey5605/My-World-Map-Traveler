@@ -698,6 +698,72 @@ export const IT_REGIONS: Subdivision[] = [
   }
 ];
 
+export const ES_SUBDIVISIONS: Subdivision[] = [
+  {
+    id: 'ES-MAIN',
+    countryId: '724',
+    code: 'ES-MAIN',
+    nameEn: 'Mainland Spain',
+    nameHe: 'ספרד היבשתית (מדריד, ברצלונה, אנדלוסיה, ולנסיה וצפון ספרד)',
+    regionGroup: 'es_mainland',
+    regionGroupNameHe: 'ספרד היבשתית',
+    icon: '🏰'
+  },
+  {
+    id: 'ES-IB',
+    countryId: '724',
+    code: 'ES-IB',
+    nameEn: 'Balearic Islands',
+    nameHe: 'האיים הבלאריים (מיורקה, מנורקה, איביזה ופורמנטרה)',
+    regionGroup: 'es_islands',
+    regionGroupNameHe: 'איי ספרד (הבלאריים והקנריים)',
+    icon: '🏖️'
+  },
+  {
+    id: 'ES-CN',
+    countryId: '724',
+    code: 'ES-CN',
+    nameEn: 'Canary Islands',
+    nameHe: 'האיים הקנריים (טנריף, גראן קנריה, לנזרוטה, פוארטוונטורה ולה פלמה)',
+    regionGroup: 'es_islands',
+    regionGroupNameHe: 'איי ספרד (הבלאריים והקנריים)',
+    icon: '🌋'
+  }
+];
+
+export const PT_SUBDIVISIONS: Subdivision[] = [
+  {
+    id: 'PT-MAIN',
+    countryId: '620',
+    code: 'PT-MAIN',
+    nameEn: 'Mainland Portugal',
+    nameHe: 'פורטוגל היבשתית (ליסבון, פורטו, עמק הדואורו, סינטרה והאלגרבה)',
+    regionGroup: 'pt_mainland',
+    regionGroupNameHe: 'פורטוגל היבשתית',
+    icon: '🍷'
+  },
+  {
+    id: 'PT-20',
+    countryId: '620',
+    code: 'PT-20',
+    nameEn: 'Azores Islands',
+    nameHe: 'האיים האזוריים (סאו מיגל, טרסיירה, פיקו ואגמי הלוע)',
+    regionGroup: 'pt_islands',
+    regionGroupNameHe: 'איי פורטוגל באוקיינוס האטלנטי',
+    icon: '🐋'
+  },
+  {
+    id: 'PT-30',
+    countryId: '620',
+    code: 'PT-30',
+    nameEn: 'Madeira',
+    nameHe: 'איי מדיירה (פונשל, יער לאוריסילבה, צוק קאבו ז׳יראו ופורטו סנטו)',
+    regionGroup: 'pt_islands',
+    regionGroupNameHe: 'איי פורטוגל באוקיינוס האטלנטי',
+    icon: '🌺'
+  }
+];
+
 export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...US_STATES,
   ...CA_PROVINCES,
@@ -709,7 +775,9 @@ export const ALL_SUBDIVISIONS: Subdivision[] = [
   ...IN_SUBDIVISIONS,
   ...UK_SUBDIVISIONS,
   ...FR_REGIONS,
-  ...IT_REGIONS
+  ...IT_REGIONS,
+  ...ES_SUBDIVISIONS,
+  ...PT_SUBDIVISIONS
 ];
 
 export const REGION_GROUPS: RegionGroup[] = [
@@ -1221,6 +1289,40 @@ export const REGION_GROUPS: RegionGroup[] = [
     nameHe: 'איי איטליה (סיציליה, הר אתנה, פלרמו, סרדיניה וקוסטה סמרלדה)',
     icon: '🌋',
     subdivisionIds: ['IT-82', 'IT-88']
+  },
+  // Spain Regions
+  {
+    id: 'es_mainland',
+    countryId: '724',
+    nameEn: 'Mainland Spain',
+    nameHe: 'ספרד היבשתית (מדריד, ברצלונה, אנדלוסיה, ולנסיה וצפון ספרד)',
+    icon: '🏰',
+    subdivisionIds: ['ES-MAIN']
+  },
+  {
+    id: 'es_islands',
+    countryId: '724',
+    nameEn: 'Spanish Islands (Balearic & Canary)',
+    nameHe: 'איי ספרד (האיים הבלאריים והאיים הקנריים)',
+    icon: '🏖️',
+    subdivisionIds: ['ES-IB', 'ES-CN']
+  },
+  // Portugal Regions
+  {
+    id: 'pt_mainland',
+    countryId: '620',
+    nameEn: 'Mainland Portugal',
+    nameHe: 'פורטוגל היבשתית (ליסבון, פורטו, האלגרבה, סינטרה ומרכז-צפון)',
+    icon: '🍷',
+    subdivisionIds: ['PT-MAIN']
+  },
+  {
+    id: 'pt_islands',
+    countryId: '620',
+    nameEn: 'Portuguese Atlantic Islands (Azores & Madeira)',
+    nameHe: 'איי פורטוגל (האיים האזוריים ואיי מדיירה)',
+    icon: '🌺',
+    subdivisionIds: ['PT-20', 'PT-30']
   }
 ];
 

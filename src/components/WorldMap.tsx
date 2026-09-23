@@ -379,7 +379,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               }
 
               // Skip countries that are rendered via states/provinces/regions
-              // USA (840), Canada (124), Australia (036), Egypt (818), Russia (643), China (156), Brazil (076), India (356), United Kingdom (826), France (250), Italy (380)
+              // USA (840), Canada (124), Australia (036), Egypt (818), Russia (643), China (156), Brazil (076), India (356), United Kingdom (826), France (250), Italy (380), Spain (724), Portugal (620)
               if (
                 countryId === '840' ||
                 countryId === '124' ||
@@ -391,7 +391,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 countryId === '356' ||
                 countryId === '826' ||
                 countryId === '250' ||
-                countryId === '380'
+                countryId === '380' ||
+                countryId === '724' ||
+                countryId === '620'
               ) {
                 return null;
               }
@@ -493,7 +495,9 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 India: { id: '356', flag: '🇮🇳', nameHe: 'הודו', nameEn: 'India' },
                 'United Kingdom': { id: '826', flag: '🇬🇧', nameHe: 'הממלכה המאוחדת', nameEn: 'United Kingdom' },
                 France: { id: '250', flag: '🇫🇷', nameHe: 'צרפת', nameEn: 'France' },
-                Italy: { id: '380', flag: '🇮🇹', nameHe: 'איטליה', nameEn: 'Italy' }
+                Italy: { id: '380', flag: '🇮🇹', nameHe: 'איטליה', nameEn: 'Italy' },
+                Spain: { id: '724', flag: '🇪🇸', nameHe: 'ספרד', nameEn: 'Spain' },
+                Portugal: { id: '620', flag: '🇵🇹', nameHe: 'פורטוגל', nameEn: 'Portugal' }
               }[country as string];
 
               if (!meta) return null;
